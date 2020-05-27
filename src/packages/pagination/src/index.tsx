@@ -1,12 +1,11 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Button from '../../button';
 import Flex from '../../flex';
 import {getComponentLocale} from '../../utils/getLocale';
 
-@Component({
+@Options({
   name: 'Pagination'
 })
 export default class Pagination extends Vue {

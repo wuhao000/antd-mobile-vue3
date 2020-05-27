@@ -1,9 +1,9 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
 import PopupPicker from '../vmc-picker/popup';
 
-@Component({
+@Options({
   name: 'PopupDatePicker'
 })
 export default class PopupDatePicker extends Vue {
@@ -40,17 +40,17 @@ export default class PopupDatePicker extends Vue {
   public render() {
     // @ts-ignore
     return (<PopupPicker
-      attrs={
-        {
-          picker: this.datePicker,
-          value: this.date,
-          ...this.$props,
-          ...this.$attrs
+        attrs={
+          {
+            picker: this.datePicker,
+            value: this.date,
+            ...this.$props,
+            ...this.$attrs
+          }
         }
-      }
-      disabled={this.disabled || !this.editable}
-      onDismiss={this.onDismiss}
-      onOk={this.onOk}
+        disabled={this.disabled || !this.editable}
+        onDismiss={this.onDismiss}
+        onOk={this.onOk}
     >{this.$slots.default}</PopupPicker>);
   }
 }

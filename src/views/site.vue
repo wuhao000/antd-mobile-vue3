@@ -23,21 +23,10 @@
   </ae-layout>
 </template>
 <script lang="ts">
-  import NavList from '@/components/nav-list.vue';
   import {routes} from '@/router';
-  import UiHeader from '@/views/header.vue';
-  import Vue from 'vue';
-  import VueClipboard from 'vue-clipboard2';
-  import {Component, Watch} from 'vue-property-decorator';
-  import {RouteConfig} from 'vue-router';
+  import {Watch} from 'vue-property-decorator';
+  import { Vue } from 'vue-class-component';
 
-  Vue.use(VueClipboard as any);
-  @Component({
-    components: {
-      UiHeader,
-      NavList
-    }
-  })
   export default class App extends Vue {
     private componentName: string = null;
 
