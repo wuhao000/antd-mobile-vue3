@@ -16,17 +16,10 @@
   </div>
 </template>
 <script lang="tsx">
-  import List from '@/packages/list';
   import getColors from '@/packages/picker/demo/demo1/colors';
-  import Picker from '@/packages/vmc-picker';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
-  import MPicker from '../../index';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.component('Picker', Picker);
-  Vue.use(List);
-  Vue.use(MPicker);
-  @Component({
+  @Options({
     name: 'Demo1'
   })
   export default class Demo1 extends Vue {

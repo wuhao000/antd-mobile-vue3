@@ -1,9 +1,6 @@
 import demo from './demo';
-import Vue from 'vue';
-import Router, {RouteConfig} from 'vue-router';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 import site from './site';
-
-Vue.use(Router);
 
 export const routes = [
   site,
@@ -18,10 +15,17 @@ export const routes = [
     component: () => import('@/components/demo.vue'),
     children: demo
   }
-] as RouteConfig[];
+] as RouteRecordRaw[];
 
-export default new Router({
-  base: process.env.BASE_URL,
-  routes,
-  mode: 'history'
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
 });
+
+export default router;
+
+// export default new Router({
+//   base: process.env.BASE_URL,
+//   routes,
+//   mode: 'history'
+// });

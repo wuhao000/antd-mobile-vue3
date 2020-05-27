@@ -62,7 +62,7 @@ module.exports = {
         })
     );
     config.externals = {
-      'vue': 'Vue',
+      // 'vue': 'Vue',
       'axios': 'axios',
       'moment': 'moment',
       'highlight': 'hljs',

@@ -2,15 +2,12 @@
   <router-view/>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import VueClipboard from 'vue-clipboard2';
-  import {Component} from 'vue-property-decorator';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(VueClipboard as any);
-  @Component({
+  @Options({
     name: 'App'
   })
-  export default class App extends Vue {
+  export default class App extends Vue{
   }
 </script>
 <style lang="less">

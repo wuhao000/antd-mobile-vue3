@@ -6,7 +6,7 @@
 import {Component} from './components';
 
 const fs = require('fs');
-const compiler = require('vue-template-compiler');
+const compiler = require('@vue/compiler-sfc');
 const reg = '((/\\*\\*\\s(.*?)\\s\\*/\\s+)|(/\\*\\*\\s+(\\*\\s+.*\\s+)*\\*/\\s+))?(@Prop\\(([\\s\\S]*?)\\))\\s+public\\s(.*?):\\s(.*?);';
 const resolvePath = require('./utils').resolvePath;
 
