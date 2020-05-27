@@ -1,13 +1,12 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import CarouselBase from './base';
 
 type IFrameOverFlow = 'visible' | 'hidden';
 
 
-@Component({
+@Options({
   name: 'DotDecorator'
 })
 class DotDecorator extends Vue {
@@ -35,18 +34,18 @@ class DotDecorator extends Vue {
         [`${this.prefixCls}-wrap-dot-active`]: index === this.currentSlide
       });
       const currentDotStyle =
-        index === this.currentSlide ? this.dotActiveStyle : this.dotStyle;
+          index === this.currentSlide ? this.dotActiveStyle : this.dotStyle;
       return (
-        <div class={dotCls} key={index}>
-          <span style={currentDotStyle}/>
-        </div>
+          <div class={dotCls} key={index}>
+            <span style={currentDotStyle}/>
+          </div>
       );
     });
     return <div class={`${this.prefixCls}-wrap`}>{dotDom}</div>;
   }
 }
 
-@Component({
+@Options({
   name: 'Carousel'
 })
 export default class Carousel extends Vue {
@@ -136,17 +135,17 @@ export default class Carousel extends Vue {
       [`${prefixCls}-vertical`]: vertical
     });
     return (
-      <CarouselBase
-        props={
-          {
-            ...newProps,
-            decorators: Decorators,
-            afterSlide: this.onChange
-          }
-        }
-        class={wrapCls}>
-        {this.$slots.default}
-      </CarouselBase>
+        <CarouselBase
+            props={
+              {
+                ...newProps,
+                decorators: Decorators,
+                afterSlide: this.onChange
+              }
+            }
+            class={wrapCls}>
+          {this.$slots.default}
+        </CarouselBase>
     );
   }
 }

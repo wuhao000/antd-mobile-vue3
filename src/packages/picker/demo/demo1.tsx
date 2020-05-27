@@ -1,14 +1,14 @@
 import {district, provinceLite} from 'antd-mobile-demo-data';
 import arrayTreeFilter from 'array-tree-filter';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Component, {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import List from '../../list';
 import WhiteSpace from '../../white-space';
 import Picker from '../index';
 
+const ListItem = List.Item;
 // 如果不是使用 List.Item 作为 children
-@Component({
+@Options({
   name: 'CustomChildren'
 })
 class CustomChildren extends Vue {
@@ -68,7 +68,7 @@ const colorStyle = {
   marginRight: '10px'
 };
 
-@Component({
+@Options({
   name: 'PickerExample'
 })
 export default class PickerExample extends Vue {
@@ -188,7 +188,7 @@ export default class PickerExample extends Vue {
                 vModel={this.state.value1}
                 onOk={e => console.log('ok', e)}
                 onDismiss={e => console.log('dismiss', e)}>
-          <List.Item arrow="horizontal">Multiple & cascader</List.Item>
+          <ListItem arrow="horizontal">Multiple & cascader</ListItem>
         </Picker>
         <Picker
             data={seasons}
@@ -199,10 +199,10 @@ export default class PickerExample extends Vue {
             onChange={v => this.state.sValue = v}
             onOk={v => this.state.sValue = v}
         >
-          <List.Item arrow="horizontal">Multiple</List.Item>
+          <ListItem arrow="horizontal">Multiple</ListItem>
         </Picker>
         <Picker data={district} cols={1} class="forss">
-          <List.Item arrow="horizontal">Single</List.Item>
+          <ListItem arrow="horizontal">Single</ListItem>
         </Picker>
         <Picker
             data={this.state.data}
@@ -210,8 +210,8 @@ export default class PickerExample extends Vue {
             value={this.state.asyncValue}
             onPickerChange={this.onPickerChange}
             onOk={v => console.log(v)}>
-          <List.Item arrow="horizontal"
-                     onClick={this.onClick}>Multiple & async</List.Item>
+          <ListItem arrow="horizontal"
+                     onClick={this.onClick}>Multiple & async</ListItem>
         </Picker>
         <Picker
             title="选择地区"
@@ -230,16 +230,16 @@ export default class PickerExample extends Vue {
             onOk={() => this.state.visible = false}
             onDismiss={() => this.state.visible = false}
         >
-          <List.Item extra={this.getSel()} onClick={() => this.state.visible = true}>
+          <ListItem extra={this.getSel()} onClick={() => this.state.visible = true}>
             Visible state
-          </List.Item>
+          </ListItem>
         </Picker>
         <Picker
             data={this.colors}
             value={this.state.colorValue}
             cols={1}
             onChange={this.onChangeColor.bind(this)}>
-          <List.Item arrow="horizontal">Complex Labels</List.Item>
+          <ListItem arrow="horizontal">Complex Labels</ListItem>
         </Picker>
       </List>
     </div>);

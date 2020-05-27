@@ -1,10 +1,11 @@
-import Component from 'vue-class-component';
+import {Options} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
-import BaseInputComponent from '../../mixins/base-input-component';
 import List from '../../list';
+import BaseInputComponent from '../../mixins/base-input-component';
 import DatePicker from './index';
 
-@Component({
+const ListItem = List.Item;
+@Options({
   name: 'DatePickerItem'
 })
 export default class DatePickerItem extends BaseInputComponent {
@@ -21,7 +22,7 @@ export default class DatePickerItem extends BaseInputComponent {
                        slots={this.slots}
                        on={this.listeners}
                        style={this.cssStyle}>
-      <List.Item title={this.title}
+      <ListItem title={this.title}
                  required={this.required}
                  disabled={this.isDisabled}
                  error={this.error}

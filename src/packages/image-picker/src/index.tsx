@@ -7,6 +7,7 @@ import TouchFeedback from '../../vmc-feedback';
 import HtmlComponent from './html.vue';
 
 
+const FlexItem = Flex.Item;
 const word = `<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><style type="text/css"></style></defs><path d="M64 439.3h520v520H64v-520z m50 470h420v-420H114v420z m843-538.1V940H624.1v-50H907V391.9l-20.7-20.7H649.8V134.7L629.1 114H297v287.6h-50V64h402.8L957 371.2z m-120.7-50L699.8 184.7v136.5h136.5zM377.8 842.9h-53.6l-5.8-188.4-93.9 188.4h-54.7l-9.7-257.7H212l2.3 180.4 88.4-180.4h57.5l6 178.4 84.9-178.4h51.3L377.8 842.9z" fill="#8a8a8a" ></path></svg>`;
 const pdf = `<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><style type="text/css"></style></defs><path d="M977 371.2V940h-82.9v-50H927V391.9l-20.7-20.7H669.8V134.7L649.1 114H317v271.6h-50V64h402.8L977 371.2z m-120.7-50L719.8 184.7v136.5h136.5z m-76.8 161.6v422.3H117.2V482.8h662.3m48.9-48.8h-760v520h760V434z m-670 380V574h80c30.3 0 50.1 1.2 59.3 3.6 14.2 3.6 26 11.4 35.6 23.5 9.5 12.1 14.3 27.6 14.3 46.7 0 14.7-2.8 27.1-8.3 37.2-5.5 10-12.5 17.9-21 23.7-8.5 5.7-17.1 9.5-25.9 11.4-11.9 2.3-29.1 3.4-51.7 3.4h-32.5V814h-49.8z m49.9-199.4v68.1h27.3c19.7 0 32.8-1.3 39.4-3.8 6.6-2.5 11.8-6.4 15.6-11.8 3.8-5.3 5.6-11.6 5.6-18.7 0-8.7-2.6-15.9-7.9-21.6-5.3-5.7-12-9.2-20-10.6-6-1.1-17.9-1.6-35.9-1.6h-24.1zM353.9 574H445c20.6 0 36.2 1.5 47 4.6 14.5 4.1 26.9 11.5 37.2 22.1 10.3 10.6 18.2 23.5 23.6 38.9 5.4 15.3 8.1 34.2 8.1 56.7 0 19.8-2.5 36.8-7.6 51.1-6.2 17.5-15 31.6-26.5 42.4-8.6 8.2-20.3 14.6-35 19.2-11 3.4-25.7 5.1-44.1 5.1h-93.8V574z m49.8 40.6v159H441c13.9 0 24-0.8 30.2-2.3 8.1-2 14.8-5.3 20.1-10 5.3-4.7 9.7-12.4 13.1-23.2 3.4-10.7 5.1-25.4 5.1-44s-1.7-32.8-5.1-42.7c-3.4-9.9-8.1-17.7-14.2-23.2-6.1-5.6-13.8-9.3-23.1-11.3-7-1.5-20.6-2.3-40.9-2.3h-22.5zM569.1 814V574h169.3v40.6H618.9v56.8H722V712H618.9v102h-49.8z" fill="#8a8a8a"></path></svg>`;
 const txt = `<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><style type="text/css"></style></defs><path d="M724.5 298.8H841L724.5 182.3v116.5z m159.4-13.6c17.3 17.3 26.9 40.7 26.9 65.1v507.5c0 29.3-24 53.2-53.2 53.2H325.2c-29.3 0-53.2-24-53.2-53.2v-39.9h39.9v39.9c0 7.2 6.1 13.3 13.3 13.3h532.3c7.2 0 13.3-6.1 13.3-13.3V350.3c0-3.9-0.5-7.8-1.4-11.5H684.6v-185c-3.8-0.9-7.6-1.3-11.5-1.4H325.2c-7.2 0-13.3 6.1-13.3 13.3v119.8H272V165.7c0-29.3 24-53.2 53.2-53.2H673c24.4 0 47.8 9.7 65.1 27l145.8 145.7zM631.3 478.5v-39.9h186.3v39.9H631.3z m0 119.8v-39.9h186.3v39.9H631.3z m0 119.8v-39.9h186.3v39.9H631.3z m-519 59.8V325.4h452.5v452.5H112.3z m343-328.8v-39.9H221.8v39.9h93.4v245.1h46.7V449.1h93.4z m0 0" fill="#8a8a8a" ></path></svg>`;
@@ -249,7 +250,7 @@ class ImagePicker extends Vue {
       };
       const itemStyle = {};
       imgItemList.push(
-        <Flex.Item
+        <FlexItem
           key={`item-${index}`}
           style={itemStyle}>
           <div key={index} class={`${prefixCls}-item`}>
@@ -277,12 +278,12 @@ class ImagePicker extends Vue {
               </HtmlComponent>
             }
           </div>
-        </Flex.Item>
+        </FlexItem>
       );
     });
 
     const selectEl = (
-      <Flex.Item key="select">
+      <FlexItem key="select">
         <TouchFeedback activeClassName={`${prefixCls}-upload-btn-active`}>
           <div
             class={`${prefixCls}-item ${prefixCls}-upload-btn`}
@@ -292,14 +293,14 @@ class ImagePicker extends Vue {
             <input ref="fileSelectorInput"
                    type="file"
                    accept={accept}
-                   onchange={(v) => {
+                   onChange={(v) => {
                      this.onFileChange(v);
                    }}
                    multiple={multiple}
             />
           </div>
         </TouchFeedback>
-      </Flex.Item>
+      </FlexItem>
     );
 
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
@@ -308,7 +309,7 @@ class ImagePicker extends Vue {
       const blankCount = count - length % count;
       const fillBlankEl: any[] = [];
       for (let i = 0; i < blankCount; i++) {
-        fillBlankEl.push(<Flex.Item key={`blank-${i}`}/>);
+        fillBlankEl.push(<FlexItem key={`blank-${i}`}/>);
       }
       allEl = allEl.concat(fillBlankEl);
     }

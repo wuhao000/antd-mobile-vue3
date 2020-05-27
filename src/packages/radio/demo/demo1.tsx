@@ -1,13 +1,14 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import Flex from '../../flex';
 import List from '../../list';
 import WhiteSpace from '../../white-space';
 import Radio from '../index';
 
+const FlexItem = Flex.Item;
+const ListItemBrief = List.Item.Brief;
 const RadioItem = Radio.RadioItem;
 
-@Component({
+@Options({
   name: 'RadioExample'
 })
 export default class Test extends Vue {
@@ -66,43 +67,43 @@ export default class Test extends Vue {
       </List>
       <List title="RadioItem demo">
         {data.map(i => (
-          <RadioItem key={i.value}
-                     value={value === i.value}
-                     onChange={() => this.onChange(i.value)}>
-            {i.label}
-          </RadioItem>
+            <RadioItem key={i.value}
+                       value={value === i.value}
+                       onChange={() => this.onChange(i.value)}>
+              {i.label}
+            </RadioItem>
         ))}
       </List>
       <WhiteSpace size="lg"/>
       <List>
         {data2.map(i => (
-          <RadioItem key={i.value} value={value2 === i.value} onChange={() => this.onChange2(i.value)}>
-            {i.label}<List.Item.Brief>{i.extra}</List.Item.Brief>
-          </RadioItem>
+            <RadioItem key={i.value} value={value2 === i.value} onChange={() => this.onChange2(i.value)}>
+              {i.label}<ListItemBrief>{i.extra}</ListItemBrief>
+            </RadioItem>
         ))}
       </List>
       <List title="Disabled">
         {data.map(i => (
-          <RadioItem key={i.value} value={value3 === i.value}
-                     onChange={() => this.onChange3(i.value)} disabled>
-            {i.label}
-          </RadioItem>
+            <RadioItem key={i.value} value={value3 === i.value}
+                       onChange={() => this.onChange3(i.value)} disabled={true}>
+              {i.label}
+            </RadioItem>
         ))}
       </List>
       <WhiteSpace size="lg"/>
       <List>
         {data2.map(i => (
-          <RadioItem key={i.value} value={value4 === i.value}
-                     onChange={() => this.onChange4(i.value)} disabled>
-            {i.label}<List.Item.Brief>{i.extra}</List.Item.Brief>
-          </RadioItem>
+            <RadioItem key={i.value} value={value4 === i.value}
+                       onChange={() => this.onChange4(i.value)} disabled={true}>
+              {i.label}<ListItemBrief>{i.extra}</ListItemBrief>
+            </RadioItem>
         ))}
       </List>
       <Flex style={{padding: '15px'}}>
-        <Flex.Item style={{padding: '15px 0', color: '#888', flex: 'none'}}>Radio demo(dustomized style)</Flex.Item>
-        <Flex.Item>
+        <FlexItem style={{padding: '15px 0', color: '#888', flex: 'none'}}>Radio demo(dustomized style)</FlexItem>
+        <FlexItem>
           <Radio class="my-radio" value={this.state.value5} onChange={e => this.state.value5 = true}>Agree</Radio>
-        </Flex.Item>
+        </FlexItem>
       </Flex>
     </div>);
   }

@@ -1,11 +1,13 @@
 import {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {Options} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
-import {FormComponent} from '../../mixins/form-component';
 import List from '../../list';
+import {FormComponent} from '../../mixins/form-component';
 import Slider from './index';
 
-@Component({
+const ListItem = List.Item;
+const ListItemBrief = ListItem.Brief;
+@Options({
   name: 'SliderItem'
 })
 export default class SliderItem extends FormComponent {
@@ -46,20 +48,20 @@ export default class SliderItem extends FormComponent {
 
   public render() {
     return (
-      <List.Item multipleLine
-                 disabled={this.isDisabled}>
-        {this.title}
-        <List.Item.Brief style={{padding: '15px'}}>
-          <Slider props={this.$props}
-                  disabled={this.isDisabled}
-                  value={this.currentValue}
-                  on={{
-                    change: (v) => {
-                      this.currentValue = v;
-                    }
-                  }}/>
-        </List.Item.Brief>
-      </List.Item>
+        <ListItem multipleLine
+                  disabled={this.isDisabled}>
+          {this.title}
+          <ListItemBrief style={{padding: '15px'}}>
+            <Slider props={this.$props}
+                    disabled={this.isDisabled}
+                    value={this.currentValue}
+                    on={{
+                      change: (v) => {
+                        this.currentValue = v;
+                      }
+                    }}/>
+          </ListItemBrief>
+        </ListItem>
     );
   }
 }

@@ -1,5 +1,5 @@
 import AsyncValidator, {ValidateRule} from 'async-validator';
-import Component from 'vue-class-component';
+import Component, {Options} from 'vue-class-component';
 import {Inject, Prop, Watch} from 'vue-property-decorator';
 import Emitter from './emitter';
 import {getPropByPath} from './utils';
@@ -7,7 +7,7 @@ import {getPropByPath} from './utils';
 const noop = function noop(a?, b?) {
 };
 
-@Component({
+@Options({
   name: 'FormComponent'
 })
 export class FormComponent extends Emitter {

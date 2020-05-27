@@ -2,8 +2,7 @@
 
 import ExecutionEnvironment from 'exenv';
 import requestAnimationFrame from 'raf';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import decorators from './decorators';
 
@@ -56,9 +55,9 @@ const removeEvent = (elem, type, eventHandle) => {
 };
 
 export type IDecoratorPosition = 'TopLeft' | 'TopCenter' | 'TopRight' | 'CenterLeft' | 'CenterCenter' |
-  'CenterRight' | 'BottomLeft' | 'BottomCenter' | 'BottomRight';
+    'CenterRight' | 'BottomLeft' | 'BottomCenter' | 'BottomRight';
 
-@Component({
+@Options({
   name: 'CarouselBase'
 })
 class CarouselBase extends Vue {
@@ -265,8 +264,8 @@ class CarouselBase extends Vue {
         continue;
       }
       const progressTime = now - initTime > config.duration
-        ? config.duration
-        : Math.max(0, now - initTime);
+          ? config.duration
+          : Math.max(0, now - initTime);
       // `now - initTime` can be negative if initTime is scheduled in the
       // future by a delay. In this case we take 0
 
@@ -274,11 +273,11 @@ class CarouselBase extends Vue {
       // is needed because the easing functino might have undefined behavior for
       // duration = 0
       const easeValue = config.duration === 0 ? config.endValue : config.easing(
-        progressTime,
-        config.beginValue,
-        config.endValue,
-        config.duration
-        // TODO: some funcs accept a 5th param
+          progressTime,
+          config.beginValue,
+          config.endValue,
+          config.duration
+          // TODO: some funcs accept a 5th param
       );
       const contrib = easeValue - config.endValue;
       tweeningValue += contrib;
@@ -321,52 +320,52 @@ class CarouselBase extends Vue {
   public render() {
     this.state.slideCount = this.$slots.default.length;
     const children = this.childrenCount() > 1 ? this.formatChildren(
-      this.$slots.default
+        this.$slots.default
     ) : this.$slots.default;
     return (
-      <div
-        class="slider"
-        ref="slider"
-        style={{...this.getSliderStyles()}}>
-        <div class="slider-frame"
-             ref="frame"
-             style={this.getFrameStyles()}
-             on={
-               {
-                 ...this.getTouchEvents(),
-                 ...this.getMouseEvents()
+        <div
+            class="slider"
+            ref="slider"
+            style={{...this.getSliderStyles()}}>
+          <div class="slider-frame"
+               ref="frame"
+               style={this.getFrameStyles()}
+               on={
+                 {
+                   ...this.getTouchEvents(),
+                   ...this.getMouseEvents()
+                 }
                }
-             }
-             onClick={this.handleClick.bind(this)}>
-          <ul class="slider-list'} ref={'list" style={this.getListStyles()}>
-            {children}
-          </ul>
+               onClick={this.handleClick.bind(this)}>
+            <ul class="slider-list" ref="list" style={this.getListStyles()}>
+              {children}
+            </ul>
+          </div>
+          {this.decorators ?
+              this.decorators.map((Decorator, index) => (
+                  <div style={{...this.getDecoratorStyles(Decorator.position), ...(Decorator.style || {})}}
+                       class={'slider-decorator-' + index}
+                       key={index}>
+                    <Decorator.component
+                        props={
+                          {
+                            currentSlide: this.state.currentSlide,
+                            slideCount: this.state.slideCount,
+                            frameWidth: this.state.frameWidth,
+                            slideWidth: this.state.slideWidth,
+                            slidesToScroll: this.state.slidesToScroll,
+                            cellSpacing: this.cellSpacing,
+                            slidesToShow: this.slidesToShow,
+                            wrapAround: this.wrapAround,
+                            nextSlide: this.nextSlide.bind(this),
+                            previousSlide: this.previousSlide.bind(this),
+                            goToSlide: this.goToSlide.bind(this)
+                          }
+                        }/>
+                  </div>
+              )) : null}
+          <style type="text/css" dangerouslySetInnerHTML={{__html: this.getStyleTagStyles()}}/>
         </div>
-        {this.decorators ?
-          this.decorators.map((Decorator, index) => (
-            <div style={{...this.getDecoratorStyles(Decorator.position), ...(Decorator.style || {})}}
-                 class={'slider-decorator-' + index}
-                 key={index}>
-              <Decorator.component
-                props={
-                  {
-                    currentSlide: this.state.currentSlide,
-                    slideCount: this.state.slideCount,
-                    frameWidth: this.state.frameWidth,
-                    slideWidth: this.state.slideWidth,
-                    slidesToScroll: this.state.slidesToScroll,
-                    cellSpacing: this.cellSpacing,
-                    slidesToShow: this.slidesToShow,
-                    wrapAround: this.wrapAround,
-                    nextSlide: this.nextSlide.bind(this),
-                    previousSlide: this.previousSlide.bind(this),
-                    goToSlide: this.goToSlide.bind(this)
-                  }
-                }/>
-            </div>
-          )) : null}
-        <style type="text/css" dangerouslySetInnerHTML={{__html: this.getStyleTagStyles()}}/>
-      </div>
     );
   }
 
@@ -387,10 +386,10 @@ class CarouselBase extends Vue {
       },
       touchmove(e) {
         const direction = self.swipeDirection(
-          self.touchObject.startX,
-          e.touches[0].pageX,
-          self.touchObject.startY,
-          e.touches[0].pageY
+            self.touchObject.startX,
+            e.touches[0].pageX,
+            self.touchObject.startY,
+            e.touches[0].pageY
         );
 
         if (direction !== 0) {
@@ -398,9 +397,9 @@ class CarouselBase extends Vue {
         }
 
         const length = self.vertical ? Math.round(
-          Math.sqrt(Math.pow(e.touches[0].pageY - self.touchObject.startY, 2))
+            Math.sqrt(Math.pow(e.touches[0].pageY - self.touchObject.startY, 2))
         ) : Math.round(
-          Math.sqrt(Math.pow(e.touches[0].pageX - self.touchObject.startX, 2))
+            Math.sqrt(Math.pow(e.touches[0].pageX - self.touchObject.startX, 2))
         );
 
         self.touchObject = {
@@ -454,10 +453,10 @@ class CarouselBase extends Vue {
           return;
         }
         const direction = self.swipeDirection(
-          self.touchObject.startX,
-          e.clientX,
-          self.touchObject.startY,
-          e.clientY
+            self.touchObject.startX,
+            e.clientX,
+            self.touchObject.startY,
+            e.clientY
         );
 
         if (direction !== 0) {
@@ -465,9 +464,9 @@ class CarouselBase extends Vue {
         }
 
         const length = self.vertical ? Math.round(
-          Math.sqrt(Math.pow(e.clientY - self.touchObject.startY, 2))
+            Math.sqrt(Math.pow(e.clientY - self.touchObject.startY, 2))
         ) : Math.round(
-          Math.sqrt(Math.pow(e.clientX - self.touchObject.startX, 2))
+            Math.sqrt(Math.pow(e.clientX - self.touchObject.startX, 2))
         );
 
         self.touchObject = {
@@ -535,8 +534,8 @@ class CarouselBase extends Vue {
     if (this.childrenCount() > 1 && this.touchObject.length > (this.state.slideWidth / slidesToShow!) / swipeSpeed!) {
       if (this.touchObject.direction === 1) {
         if (
-          this.state.currentSlide >= this.childrenCount() - slidesToShow! &&
-          !this.wrapAround
+            this.state.currentSlide >= this.childrenCount() - slidesToShow! &&
+            !this.wrapAround
         ) {
           this.animateSlide(this.edgeEasing);
         } else {
@@ -600,7 +599,7 @@ class CarouselBase extends Vue {
       return;
     }
     this.autoplayID = setInterval(this.autoplayIterator,
-      this.autoplayInterval);
+        this.autoplayInterval);
   }
 
   public resetAutoplayFun() {
@@ -675,7 +674,7 @@ class CarouselBase extends Vue {
         return this.goToSlide(this.state.currentSlide + (this.state.slidesToScroll as number));
       }
       this.goToSlide(
-        Math.min(this.state.currentSlide + (this.state.slidesToScroll as number), childrenCount - slidesToShow)
+          Math.min(this.state.currentSlide + (this.state.slidesToScroll as number), childrenCount - slidesToShow)
       );
     }
   }
@@ -804,8 +803,8 @@ class CarouselBase extends Vue {
     if (firstSlide) {
       firstSlide.style.height = 'auto';
       slideHeight = this.vertical ?
-        firstSlide.offsetHeight * this.slidesToShow :
-        firstSlide.offsetHeight;
+          firstSlide.offsetHeight * this.slidesToShow :
+          firstSlide.offsetHeight;
     } else {
       slideHeight = 100;
     }
@@ -871,18 +870,18 @@ class CarouselBase extends Vue {
     const cellSpacing = this.cellSpacing!;
     const spacingOffset = cellSpacing * this.childrenCount();
     const transform = 'translate3d(' +
-      this.getTweeningValue('left') + 'px, ' +
-      this.getTweeningValue('top') + 'px, 0)';
+        this.getTweeningValue('left') + 'px, ' +
+        this.getTweeningValue('top') + 'px, 0)';
     return {
       transform,
       WebkitTransform: transform,
       msTransform: 'translate(' +
-        this.getTweeningValue('left') + 'px, ' +
-        this.getTweeningValue('top') + 'px)',
+          this.getTweeningValue('left') + 'px, ' +
+          this.getTweeningValue('top') + 'px)',
       position: 'relative',
       display: 'block',
       margin: this.vertical ? (cellSpacing / 2) * -1 + 'px 0px'
-        : '0px ' + (cellSpacing / 2) * -1 + 'px',
+          : '0px ' + (cellSpacing / 2) * -1 + 'px',
       padding: 0,
       height: this.vertical ? ((listWidth + spacingOffset) + 'px') : (this.state.slideHeight + 'px'),
       width: this.vertical ? 'auto' : ((listWidth + spacingOffset) + 'px'),
@@ -938,7 +937,7 @@ class CarouselBase extends Vue {
       const slidesBefore = Math.ceil(positionValue / (this.state.slideWidth));
       if (this.state.slideCount - slidesBefore <= index) {
         return (this.state.slideWidth + this.cellSpacing) *
-          (this.state.slideCount - index) * -1;
+            (this.state.slideCount - index) * -1;
       }
 
       let slidesAfter = Math.ceil((Math.abs(positionValue) - Math.abs(end)) / this.state.slideWidth);

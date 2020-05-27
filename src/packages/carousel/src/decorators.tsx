@@ -1,10 +1,9 @@
 'use strict';
 
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Component, {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
-@Component({name: 'DefaultDecorator'})
+@Options({name: 'DefaultDecorator'})
 export class IDecoratorProps extends Vue {
   @Prop({type: Number})
   public currentSlide: number;
@@ -30,7 +29,7 @@ export class IDecoratorProps extends Vue {
   public goToSlide?: (index: number) => void;
 }
 
-@Component({name: 'Decorator1'})
+@Options({name: 'Decorator1'})
 class Decorator1 extends IDecoratorProps {
   public render() {
     return (

@@ -1,9 +1,8 @@
+import {mixins, Options} from 'vue-class-component';
 import PureInputComponent from './pure-input-component';
-import Component from 'vue-class-component';
-import {mixins} from 'vue-class-component';
 import {SimpleFormComponent} from './simple-form-component';
 
-@Component({
+@Options({
   name: 'BaseFormComponent'
 })
 export default class BaseFormComponent extends mixins(PureInputComponent, SimpleFormComponent) {

@@ -1,11 +1,13 @@
 import {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {Options} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
-import {FormComponent} from '../../mixins/form-component';
 import List from '../../list';
+import {FormComponent} from '../../mixins/form-component';
 import Range from './index';
+const ListItem = List.Item;
+const ListItemBrief = ListItem.Brief;
 
-@Component({
+@Options({
   name: 'RangeItem'
 })
 export default class RangeItem extends FormComponent {
@@ -14,10 +16,10 @@ export default class RangeItem extends FormComponent {
   public title: string | VNode;
 
   public render() {
-    return <List.Item multipleLine
+    return <ListItem multipleLine
                       disabled={this.isDisabled}>
       {this.title}
-      <List.Item.Brief style={{padding: '15px', flex: 1}}>
+      <ListItemBrief style={{padding: '15px', flex: 1}}>
         <Range attrs={Object.assign({}, this.$attrs, this.$props)}
                disabled={this.isDisabled}
                value={this.currentValue}
@@ -26,7 +28,7 @@ export default class RangeItem extends FormComponent {
                    this.currentValue = v;
                  }
                }}/>
-      </List.Item.Brief>
-    </List.Item>;
+      </ListItemBrief>
+    </ListItem>;
   }
 }
