@@ -4,7 +4,7 @@ import {Prop} from 'vue-property-decorator';
 import {getOptionProperty} from '../utils/option';
 import BaseFormComponent from './base-input-component';
 
-@Component({
+@Options({
   name: 'OptionsBasedComponent'
 })
 export default class OptionsBasedComponent extends mixins(BaseFormComponent) {

@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'PickerItem'
 })
 class PickerItem extends Vue {
@@ -15,7 +15,7 @@ class PickerItem extends Vue {
 }
 
 export default function PickerMixin(ComposedComponent) {
-  @Component({
+  @Options({
     name: 'PickerMixin'
   })
   class PickerMixin extends Vue {

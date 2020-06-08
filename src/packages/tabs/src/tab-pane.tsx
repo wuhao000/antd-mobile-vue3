@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {getPxStyle, getTransformPropValue} from './utils';
 
-@Component({
+@Options({
   name: 'TabPane'
 })
 class TabPane extends Vue {

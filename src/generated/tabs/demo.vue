@@ -28,10 +28,10 @@
   import demo4 from '@/packages/tabs/demo/demo4.tsx';
   import demo5 from '@/packages/tabs/demo/demo5.tsx';
   import demo6 from '@/packages/tabs/demo/demo6.tsx';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo',
     components: {demo1, demo2, demo3, demo4, demo5, demo6, DemoWrapper}
   })

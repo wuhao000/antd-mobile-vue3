@@ -1,7 +1,7 @@
 import CalendarBase from './calendar-base';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 
-@Component({
+@Options({
   name: 'CalendarView'
 })
 export default class CalendarView extends CalendarBase {

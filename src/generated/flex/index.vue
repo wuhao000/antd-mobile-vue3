@@ -15,13 +15,13 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Flex from '@/packages/flex';
   import title from '../../packages/flex/demo/README.md';
 
   Vue.use(Flex);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

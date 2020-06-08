@@ -1,14 +1,14 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Checkbox from '../../checkbox';
-import List from '../../list';
+import List, {ListItem} from '../../list';
 import Radio from '../../radio';
 import {DataItem} from './props-type';
 
-@Component({
+@Options({
   name: 'SubMenu'
 })
 class SubMenu extends Vue {
@@ -49,7 +49,7 @@ class SubMenu extends Vue {
     return (
         <List style={{paddingTop: 0}} class={subMenuPrefixCls}>
           {subMenuData.map((dataItem, idx) => (
-              <List.Item
+              <ListItem
                   class={classnames(`${radioPrefixCls}-item`, {
                     [`${subMenuPrefixCls}-item-selected`]: selected(dataItem),
                     [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled
@@ -64,7 +64,7 @@ class SubMenu extends Vue {
                   }
               >
                 {dataItem.label}
-              </List.Item>
+              </ListItem>
           ))}
         </List>
     );

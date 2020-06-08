@@ -7,4 +7,6 @@ Plugin.install = Vue => {
   Vue.component('MFlexItem', MFlex.Item);
 };
 
+const FlexItem = MFlex.Item;
+export {FlexItem};
 export default Plugin;

@@ -1,5 +1,5 @@
 import {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {Options} from 'vue-class-component';
 import {Inject} from 'vue-property-decorator';
 import {CellData, MonthData, SelectType} from './data-types';
 import DatePickerProps from './date-picker-props';
@@ -13,7 +13,7 @@ function monthsBetween(minDate: Date, maxDate: Date) {
   return (maxDate.getFullYear() - minDate.getFullYear()) * 12 + maxDate.getMonth() - minDate.getMonth();
 }
 
-@Component({
+@Options({
   name: 'DatePicker'
 })
 export default class DatePicker extends DatePickerProps {
@@ -75,7 +75,7 @@ export default class DatePicker extends DatePickerProps {
   public canLoadNext() {
     const {maxDate} = this;
     return !maxDate || this.state.months.length <= 0
-      || +getMonthDate(maxDate).firstDate > +this.state.months[this.state.months.length - 1].firstDate;
+        || +getMonthDate(maxDate).firstDate > +this.state.months[this.state.months.length - 1].firstDate;
   }
 
   public genMonthData(date?: Date, addMonth: number = 0) {
@@ -132,39 +132,39 @@ export default class DatePicker extends DatePickerProps {
       return m.firstDate >= startMonthDate && m.firstDate <= endMonthDate;
     }).forEach(m => {
       m.weeks.forEach(w => w.filter(d => {
-          if (!endDateTick) {
-            return d.tick && this.inDate(startDateTick, d.tick);
-          } else {
-            return d.tick && d.tick >= startDateTick && d.tick <= endDateTick;
-          }
-        }).forEach(d => {
-          const oldValue = d.selected;
-          if (clear) {
-            d.selected = SelectType.None;
-          } else {
-            const info = getDateExtra && getDateExtra(new Date(d.tick),
-              [...this.currentValue]) || {};
-            if (d.outOfDate || info.disable) {
-              unuseable.push(d.tick);
-            }
-            if (this.inDate(startDateTick, d.tick)) {
-              if (type === 'one') {
-                d.selected = SelectType.Single;
-              } else if (!endDateTick) {
-                d.selected = SelectType.Only;
-              } else if (startDateTick !== endDateTick) {
-                d.selected = SelectType.Start;
-              } else {
-                d.selected = SelectType.All;
-              }
-            } else if (this.inDate(endDateTick, d.tick)) {
-              d.selected = SelectType.End;
+            if (!endDateTick) {
+              return d.tick && this.inDate(startDateTick, d.tick);
             } else {
-              d.selected = SelectType.Middle;
+              return d.tick && d.tick >= startDateTick && d.tick <= endDateTick;
             }
-          }
-          needUpdate = needUpdate || d.selected !== oldValue;
-        })
+          }).forEach(d => {
+            const oldValue = d.selected;
+            if (clear) {
+              d.selected = SelectType.None;
+            } else {
+              const info = getDateExtra && getDateExtra(new Date(d.tick),
+                  [...this.currentValue]) || {};
+              if (d.outOfDate || info.disable) {
+                unuseable.push(d.tick);
+              }
+              if (this.inDate(startDateTick, d.tick)) {
+                if (type === 'one') {
+                  d.selected = SelectType.Single;
+                } else if (!endDateTick) {
+                  d.selected = SelectType.Only;
+                } else if (startDateTick !== endDateTick) {
+                  d.selected = SelectType.Start;
+                } else {
+                  d.selected = SelectType.All;
+                }
+              } else if (this.inDate(endDateTick, d.tick)) {
+                d.selected = SelectType.End;
+              } else {
+                d.selected = SelectType.Middle;
+              }
+            }
+            needUpdate = needUpdate || d.selected !== oldValue;
+          })
       );
       if (needUpdate && m.componentRef) {
         m.componentRef.updateWeeks();

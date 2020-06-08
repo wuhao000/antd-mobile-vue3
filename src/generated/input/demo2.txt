@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import List from '../../list';
+
+import {Options, Vue} from 'vue-class-component';
+import List, {ListItem} from '../../list';
 import WhiteSpace from '../../white-space';
 import InputItem from '../index';
 
-@Component({
+@Options({
   name: 'BasicInputExample'
 })
 export default class BasicInputExample extends Vue {
@@ -30,22 +30,22 @@ export default class BasicInputExample extends Vue {
         <div>
           <List renderHeader={() => 'Customize to focus'}>
             <InputItem
-                clear
+                clear={true}
                 placeholder="auto focus"
                 ref="autoFocusInst"
             >标题</InputItem>
             <InputItem
-                clear
+                clear={true}
                 placeholder="click the button below to focus"
                 ref="inputRef"
             >标题</InputItem>
-            <List.Item>
+            <ListItem>
               <div
                   style={{width: '100%', color: '#108ee9', textAlign: 'center'}}
                   onClick={this.handleClick}>
                 click to focus
               </div>
-            </List.Item>
+            </ListItem>
           </List>
           <List renderHeader={() => 'Whether is controlled'}>
             <InputItem
@@ -61,14 +61,13 @@ export default class BasicInputExample extends Vue {
           <List renderHeader={() => 'Click label to focus input'}>
             <InputItem
                 placeholder="click label to focus input"
-                ref="labelFocusInst"
-            >
+                ref="labelFocusInst">
               <div onClick={() => this.labelFocusInst.focus()}>标题</div>
             </InputItem>
           </List>
           <List title={'Show clear'}>
             <InputItem
-                clearable
+                clearable={true}
                 placeholder="displayed clear while typing"
             >标题</InputItem>
           </List>
@@ -136,7 +135,7 @@ export default class BasicInputExample extends Vue {
             >姓名</InputItem>
             <InputItem
                 value="style of disabled `InputItem`"
-                disabled
+                disabled={true}
             >姓名</InputItem>
           </List>
         </div>

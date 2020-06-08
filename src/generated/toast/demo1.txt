@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Button, Toast, WhiteSpace, WingBlank} from '../../index';
 
 function showToast() {
@@ -35,7 +35,7 @@ const customIcon = (h) => (
   </svg>
 );
 
-@Component({
+@Options({
   name: 'ToastExample'
 })
 export default class ToastExample extends Vue {

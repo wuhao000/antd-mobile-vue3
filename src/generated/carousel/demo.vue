@@ -24,10 +24,10 @@
   import demo3 from '@/packages/carousel/demo/demo3.vue';
   import demo4 from '@/packages/carousel/demo/demo4.vue';
   import demo5 from '@/packages/carousel/demo/demo5.vue';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo',
     components: {demo1, demo2, demo3, demo4, demo5, DemoWrapper}
   })

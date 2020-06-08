@@ -19,13 +19,13 @@
   import demo2 from './demo2.vue';
   import demo3 from './demo3.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Checkbox from '@/packages/checkbox';
   import title from '../../packages/checkbox/demo/README.md';
 
   Vue.use(Checkbox);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2, demo3

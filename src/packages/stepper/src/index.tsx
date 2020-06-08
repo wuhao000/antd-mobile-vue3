@@ -1,11 +1,11 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Icon from '../../icon';
 import RMCInputNumber from '../../vmc-input-number';
 
-@Component({
+@Options({
   name: 'MStepper'
 })
 

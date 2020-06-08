@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import SegmentedControl from '@/packages/segmented-control';
   import title from '../../packages/segmented-control/demo/README.md';
   import props from '../../packages/segmented-control/demo/props.md';
 
   Vue.use(SegmentedControl);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

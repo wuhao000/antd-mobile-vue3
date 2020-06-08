@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Button from '../../button';
 import {ResultPropsType} from './props-type';
@@ -10,7 +10,7 @@ export interface ResultProps extends ResultPropsType {
   prefixCls?: string;
 }
 
-@Component({
+@Options({
   name: 'MResult'
 })
 export default class Result extends Vue {
@@ -49,37 +49,37 @@ export default class Result extends Vue {
       imgContent = <div class={`${prefixCls}-pic`}>{img}</div>;
     } else if (imgUrl) {
       imgContent = (
-        <div
-          class={`${prefixCls}-pic`}
-          style={{backgroundImage: `url(${imgUrl})`}}
-        />
+          <div
+              class={`${prefixCls}-pic`}
+              style={{backgroundImage: `url(${imgUrl})`}}
+          />
       );
     }
 
     return (
-      <div
-        class={classnames(prefixCls)}
-        role="alert"
-      >
-        {imgContent}
-        {title ? <div class={`${prefixCls}-title`}>{title}</div> : null}
-        {message ? (
-          <div class={`${prefixCls}-message`}>{message}</div>
-        ) : null}
-        {buttonText ? (
-          <div class={`${prefixCls}-button`}>
-            {
-              // @ts-ignore
-              <Button type={buttonType}
-                      onClick={() => {
-                        this.$emit('click');
-                      }}>
-                {buttonText}
-              </Button>
-            }
-          </div>
-        ) : null}
-      </div>
+        <div
+            class={classnames(prefixCls)}
+            role="alert"
+        >
+          {imgContent}
+          {title ? <div class={`${prefixCls}-title`}>{title}</div> : null}
+          {message ? (
+              <div class={`${prefixCls}-message`}>{message}</div>
+          ) : null}
+          {buttonText ? (
+              <div class={`${prefixCls}-button`}>
+                {
+                  // @ts-ignore
+                  <Button type={buttonType}
+                          onClick={() => {
+                            this.$emit('click');
+                          }}>
+                    {buttonText}
+                  </Button>
+                }
+              </div>
+          ) : null}
+        </div>
     );
   }
 }

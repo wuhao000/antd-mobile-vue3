@@ -1,7 +1,7 @@
 import F2 from '@antv/f2';
 
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import VArea from './area';
 import VAxis from './axis';
@@ -14,7 +14,7 @@ import VPoint from './point';
 import VScale from './scale';
 import VTooltip from './tooltip';
 
-@Component({
+@Options({
   name: 'VChart'
 })
 class VChart extends Vue {

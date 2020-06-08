@@ -2,7 +2,7 @@ import Component, {mixins} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Base from './mixin';
 
-@Component({
+@Options({
   name: 'VBar'
 })
 export default class VBar extends mixins(Base) {

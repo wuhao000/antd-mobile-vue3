@@ -1,9 +1,9 @@
 import CalendarBase from './calendar-base';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Watch} from 'vue-property-decorator';
 import Popup from '../popup';
 
-@Component({
+@Options({
   name: 'Calendar'
 })
 class Calendar extends CalendarBase {

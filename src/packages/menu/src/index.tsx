@@ -1,6 +1,6 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Button from '../../button';
 import Flex from '../../flex';
@@ -15,7 +15,10 @@ export interface StateType {
   height?: number;
 }
 
-@Component({
+const FlexItem = Flex.Item;
+const ListItem = List.Item;
+
+@Options({
   name: 'Menu'
 })
 class Menu extends Vue {
@@ -238,10 +241,10 @@ class Menu extends Vue {
               })}
           >
             {level === 2 && (
-                <Flex.Item>
+                <FlexItem>
                   <List role="tablist">
                     {data.map((dataItem, index) => (
-                        <List.Item
+                        <ListItem
                             class={
                               dataItem.value === firstLevelSelectValue
                                   ? `${prefixCls}-selected`
@@ -253,12 +256,12 @@ class Menu extends Vue {
                             aria-selected={dataItem.value === firstLevelSelectValue}
                         >
                           {dataItem.label}
-                        </List.Item>
+                        </ListItem>
                     ))}
                   </List>
-                </Flex.Item>
+                </FlexItem>
             )}
-            <Flex.Item
+            <FlexItem
                 role="tabpanel"
                 aria-hidden="false"
                 class={`${MenuSelectContanerPrefixCls}-submenu`}
@@ -272,19 +275,19 @@ class Menu extends Vue {
                   showSelect={showSelect}
                   multiSelect={multiSelect}
               />
-            </Flex.Item>
+            </FlexItem>
           </Flex>
           {multiSelect && (
               <div class={multiSelectMenuBtnsCls}>
                 <Button
-                    inline
+                    inline={true}
                     class={`${multiSelectMenuBtnsCls}-btn`}
                     onClick={this.onMenuCancel}
                 >
                   {_locale.cancelText}
                 </Button>
                 <Button
-                    inline
+                    inline={true}
                     type="primary"
                     class={`${multiSelectMenuBtnsCls}-btn`}
                     onClick={this.onMenuOk}

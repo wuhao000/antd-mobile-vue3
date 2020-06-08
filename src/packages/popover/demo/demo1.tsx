@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Icon, NavBar, Popover} from '../../index';
 
 const Item = Popover.Item;
 
-@Component({
+@Options({
   name: 'PopoverExample'
 })
 export default class PopoverExample extends Vue {

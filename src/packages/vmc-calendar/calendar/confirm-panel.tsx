@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {Locale} from '../data-types';
 import {formatDate} from '../util';
 
-@Component({
+@Options({
   name: 'ConfirmPanel'
 })
 class ConfirmPanel extends Vue {

@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Popover from '@/packages/popover';
   import title from '../../packages/popover/demo/README.md';
   import props from '../../packages/popover/demo/props.md';
 
   Vue.use(Popover);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

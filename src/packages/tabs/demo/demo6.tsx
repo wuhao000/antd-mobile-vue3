@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import Tabs from '../src';
 
-@Component({
+const TabsDefaultTabBar = Tabs.DefaultTabBar;
+@Options({
   name: 'TabsExample'
 })
 export default class TabsExample extends Vue {
@@ -33,15 +33,17 @@ export default class TabsExample extends Vue {
     ];
 
     return (
-      <div>
-        <m-white-space/>
-        <m-tabs tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar attrs={props} page={3}/>}>
-          {
-            tabs.map(tab => this.renderContent(tab))
-          }
-        </m-tabs>
-        <m-white-space/>
-      </div>
+        <div>
+          <m-white-space/>
+          <m-tabs tabs={tabs} renderTabBar={props => <TabsDefaultTabBar
+              attrs={props}
+              page={3}/>}>
+            {
+              tabs.map(tab => this.renderContent(tab))
+            }
+          </m-tabs>
+          <m-white-space/>
+        </div>
     );
   }
 }

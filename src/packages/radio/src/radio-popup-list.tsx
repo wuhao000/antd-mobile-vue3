@@ -1,11 +1,11 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import OptionsBasedComponent from '../../mixins/options-based-component';
-import List from '../../list';
+import List, {ListItem} from '../../list';
 import Popup from '../../popup';
 import RadioList from './radio-list';
 
-@Component({
+@Options({
   name: 'MRadioPopupList'
 })
 export default class MRadioPopupList extends OptionsBasedComponent {
@@ -56,7 +56,7 @@ export default class MRadioPopupList extends OptionsBasedComponent {
     const cancelButton = <div onclick={this.onClear}
                               class={`am-popup-item am-popup-header-left`}>清除</div>;
     const {optionText, placeholder, stateValue, closePopup, title, clearable, onClick, readOnly, isDisabled, disabled} = this;
-    return <List.Item onClick={onClick}
+    return <ListItem onClick={onClick}
                       text={!!optionText}
                       required={this.required}
                       touchFeedback={!readOnly && !disabled}
@@ -78,7 +78,7 @@ export default class MRadioPopupList extends OptionsBasedComponent {
       </Popup>
       <span slot="extra">{(stateValue !== undefined && stateValue !== null) ? optionText : placeholder}</span>
       <span>{title}</span>
-    </List.Item>;
+    </ListItem>;
   }
 
   private closePopup() {

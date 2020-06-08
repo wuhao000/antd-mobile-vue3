@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop, Watch} from 'vue-property-decorator';
 import {CellData, ExtraData, Locale, MonthData, SelectType} from '../data-types';
 
-@Component({
+@Options({
   name: 'SingleMonth'
 })
 class SingleMonth extends Vue {

@@ -1,6 +1,6 @@
 import classnames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import IconRes, {IconResProps} from '../../mixins/icon-res';
 import TouchFeedback from '../../vmc-feedback';
@@ -14,7 +14,7 @@ function isString(str: any) {
   return typeof str === 'string';
 }
 
-@Component({
+@Options({
   name: 'Button'
 })
 class Button extends Vue {
@@ -83,50 +83,50 @@ class Button extends Vue {
 
     if (typeof iconType === 'string') {
       iconEl = (
-        <IconRes
-          class={`${prefixCls}-icon`}
-          // @ts-ignore
-          props={{
-            type: httpReg.test(iconType) ? iconType : {
-              mobile: true,
-              iconType: 'icon',
-              type: iconType,
-              size: size === 'small' ? 'xxs' : 'md'
-            }
-          }}/>
+          <IconRes
+              class={`${prefixCls}-icon`}
+              // @ts-ignore
+              props={{
+                type: httpReg.test(iconType) ? iconType : {
+                  mobile: true,
+                  iconType: 'icon',
+                  type: iconType,
+                  size: size === 'small' ? 'xxs' : 'md'
+                }
+              }}/>
       );
     } else if (iconType) {
       const cls = classnames(
-        'am-icon',
-        `${prefixCls}-icon`,
-        size === 'small' ? 'am-icon-xxs' : 'am-icon-md'
+          'am-icon',
+          `${prefixCls}-icon`,
+          size === 'small' ? 'am-icon-xxs' : 'am-icon-md'
       );
       iconEl = (
-        // @ts-ignore
-        <IconRes class={cls} props={{type: iconType}}/>
+          // @ts-ignore
+          <IconRes class={cls} props={{type: iconType}}/>
       );
     }
     // use div, button native is buggy @yiminghe
     return (
-      // @ts-ignore
-      <TouchFeedback
-        // tslint:disable-next-line:jsx-no-multiline-js
-        activeClassName={
-          activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
-        disabled={disabled}
-        activeStyle={activeStyle}>
-        <a role="button"
-           class={wrapCls}
-           onClick={(e) => {
-             if (!this.disabled) {
-               this.$emit('click', e);
-             }
-           }}
-           aria-disabled={disabled}>
-          {iconEl}
-          {kids}
-        </a>
-      </TouchFeedback>
+        // @ts-ignore
+        <TouchFeedback
+            // tslint:disable-next-line:jsx-no-multiline-js
+            activeClassName={
+              activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
+            disabled={disabled}
+            activeStyle={activeStyle}>
+          <a role="button"
+             class={wrapCls}
+             onClick={(e) => {
+               if (!this.disabled) {
+                 this.$emit('click', e);
+               }
+             }}
+             aria-disabled={disabled}>
+            {iconEl}
+            {kids}
+          </a>
+        </TouchFeedback>
     );
   }
 }

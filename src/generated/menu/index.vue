@@ -25,14 +25,14 @@
   import demo3 from './demo3.vue';
   import demo4 from './demo4.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Menu from '@/packages/menu';
   import title from '../../packages/menu/demo/README.md';
   import props from '../../packages/menu/demo/props.md';
 
   Vue.use(Menu);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2, demo3, demo4

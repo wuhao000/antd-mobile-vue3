@@ -4,13 +4,10 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
-  import DatePickerView from '../../index';
+  import {Options, Vue} from 'vue-class-component';
   import Demo1Component from './demo1';
 
-  Vue.use(DatePickerView);
-  @Component({
+  @Options({
     name: 'Demo1',
     components: {Demo1Component}
   })

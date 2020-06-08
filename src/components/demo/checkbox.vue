@@ -1,23 +1,20 @@
 <template>
-  <ae-layout>
+  <a-layout>
     <m-list>
       <m-checkbox-popup-list v-model="value"
-                          title="复选"
-                          :options="options"></m-checkbox-popup-list>
+                             title="复选"
+                             :options="options"></m-checkbox-popup-list>
       <m-checkbox-popup-list v-model="value2"
-                          title="复选"
-                          :options="options2"></m-checkbox-popup-list>
+                             title="复选"
+                             :options="options2"></m-checkbox-popup-list>
       <m-checkbox-item>单个</m-checkbox-item>
     </m-list>
-  </ae-layout>
+  </a-layout>
 </template>
 <script lang="ts">
-  import Radio from '@/packages/radio';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(Radio);
-  @Component({
+  @Options({
     name: 'Components'
   })
   export default class Components extends Vue {

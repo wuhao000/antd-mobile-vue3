@@ -15,11 +15,11 @@ const camelBatch = function(attrs) {
   }
   return attrs;
 };
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'VPie'
 })
 export default class VPie extends Vue {

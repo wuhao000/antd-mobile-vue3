@@ -21,14 +21,14 @@
   import demo1 from './demo1.vue';
   import demo2 from './demo2.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import TabBar from '@/packages/tab-bar';
   import title from '../../packages/tab-bar/demo/README.md';
   import props from '../../packages/tab-bar/demo/props.md';
 
   Vue.use(TabBar);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2

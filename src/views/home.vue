@@ -6,15 +6,19 @@
 <script lang="ts">
   import Markdown from '@/components/markdown.vue';
   import '@/styles/github-markdown.less';
-  import {Component, Vue} from 'vue-property-decorator';
+  import {defineComponent} from 'vue';
   import md from './../../README.md';
 
-  Vue.component('Markdown', Markdown);
-  @Component({
-    name: 'Home'
-  })
-  export default class Home extends Vue {
-    public content: any = md;
-  }
+  export default defineComponent({
+    name: 'Home',
+    components: {
+      Markdown
+    },
+    setup() {
+      return {
+        content: md
+      };
+    }
+  });
 </script>
 

@@ -1,8 +1,8 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'PopupPickerProps'
 })
 export class PopupPickerProps extends Vue<IPopupPickerProps> {

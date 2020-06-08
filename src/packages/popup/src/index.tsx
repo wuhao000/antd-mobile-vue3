@@ -1,13 +1,10 @@
-import {Drawer} from 'ant-design-vue';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import BaseFormComponent from '../../mixins/base-input-component';
 import Touchable from '../../vmc-feedback/feedback';
 
-Vue.use(Drawer);
-
-@Component({
+@Options({
   name: 'MPopup'
 })
 class MPopup extends BaseFormComponent {
@@ -98,22 +95,22 @@ class MPopup extends BaseFormComponent {
 
   private renderCancel() {
     return this.showCancel ?
-      <Touchable activeClassName={`${this.prefixCls}-item-active`}>
-        {
-          this.cancelButton ? this.cancelButton
-            : <div onclick={this.onCancel}
-                   class={`${this.prefixCls}-item ${this.prefixCls}-header-left`}>
-              {this.cancelText}
-            </div>
-        }
-      </Touchable> : null;
+        <Touchable activeClassName={`${this.prefixCls}-item-active`}>
+          {
+            this.cancelButton ? this.cancelButton
+                : <div onclick={this.onCancel}
+                       class={`${this.prefixCls}-item ${this.prefixCls}-header-left`}>
+                  {this.cancelText}
+                </div>
+          }
+        </Touchable> : null;
   }
 
   private renderOk() {
     return this.showOk ?
-      <Touchable activeClassName={`${this.prefixCls}-item-active`}>
-        <div onclick={this.onOk} class={`${this.prefixCls}-item ${this.prefixCls}-header-right`}>确定</div>
-      </Touchable> : null;
+        <Touchable activeClassName={`${this.prefixCls}-item-active`}>
+          <div onclick={this.onOk} class={`${this.prefixCls}-item ${this.prefixCls}-header-right`}>确定</div>
+        </Touchable> : null;
   }
 }
 

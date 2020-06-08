@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
 import Icon from '../../icon';
@@ -39,7 +39,7 @@ const willPreventDefault = supportsPassive ? {passive: false} : false;
 
 type ICurrSt = 'activate' | 'deactivate' | 'release' | 'finish';
 
-@Component({
+@Options({
   name: 'PullToRefresh'
 })
 export default class PullToRefresh extends Vue {

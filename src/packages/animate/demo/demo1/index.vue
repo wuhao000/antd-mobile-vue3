@@ -18,14 +18,9 @@
   </div>
 </template>
 <script lang="ts">
-  import MButton from '@/packages/button';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
-  import MAnimate from '../../index';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(MButton);
-  Vue.use(MAnimate);
-  @Component({
+  @Options({
     name: 'Demo1'
   })
   export default class Demo1 extends Vue {

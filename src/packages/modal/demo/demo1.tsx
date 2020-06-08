@@ -1,5 +1,6 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {ListItem} from '@/packages/list';
+import {Options, Vue} from 'vue-class-component';
 import {Button, Icon, List, Modal, WhiteSpace, WingBlank} from '../../index';
 
 function closest(el, selector) {
@@ -14,7 +15,7 @@ function closest(el, selector) {
   return null;
 }
 
-@Component({
+@Options({
   name: 'ModalExample'
 })
 
@@ -93,7 +94,7 @@ export default class ModalExample extends Vue {
         >
           <List renderHeader={() => <div>委托买入</div>} className="popup-list">
             {['股票名称', '股票代码', '买入价格'].map((i, index) => (
-              <List.Item key={index}>{i}</List.Item>
+              <ListItem key={index}>{i}</ListItem>
             ))}
             <Button type="primary" onClick={this.onClose('modal2')}>买入</Button>
           </List>

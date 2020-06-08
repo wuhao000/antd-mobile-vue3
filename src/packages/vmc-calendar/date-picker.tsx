@@ -6,7 +6,7 @@ import DatePickerBase from './date-picker-base';
 import SingleMonth from './date/single-month';
 import WeekPanel from './date/week-panel';
 
-@Component({
+@Options({
   name: 'DatePicker'
 })
 class DatePicker extends mixins(DatePickerBase) {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import BaseComponent from './base';
 import InputHandler from './input-handler';
@@ -12,7 +12,7 @@ function preventDefault(e: any) {
   e.preventDefault();
 }
 
-@Component({
+@Options({
   name: 'InputNumber'
 })
 class InputNumber extends BaseComponent {

@@ -8,18 +8,17 @@
              type="copy"></ae-icon>
     <pre v-hljs
          class="code-box-code markdown-body clearfix">
-      <ae-layout>
+      <a-layout>
         <code v-text="code"></code>
-      </ae-layout>
+      </a-layout>
     </pre>
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
   import {Prop} from 'vue-property-decorator';
 
-  @Component({
+  @Options({
     name: 'CodeBox'
   })
   export default class CodeBox extends Vue {

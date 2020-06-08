@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
 export default function MultiPickerMixin(ComposedComponent) {
-  @Component({
+  @Options({
     name: 'MultiPickerMixin'
   })
   class MultiPickerMixin extends Vue {

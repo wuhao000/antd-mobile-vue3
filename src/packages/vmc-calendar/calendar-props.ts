@@ -1,13 +1,13 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
-import {ExtraData, Locale} from './data-types';
 import {PropsType as HeaderPropsType} from './calendar/header';
+import {ExtraData, Locale} from './data-types';
 import defaultLocale from './locale/zh_CN';
 
 export type SelectDateType = [Date, Date] | [Date];
 
-@Component({
+@Options({
   name: 'CalendarProps'
 })
 export default class CalendarProps extends Vue {

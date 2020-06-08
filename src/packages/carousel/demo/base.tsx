@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
 
-@Component({
+import {Options, Vue} from 'vue-class-component';
+
+@Options({
   name: 'BaseDemo'
 })
 export default class BaseDemo extends Vue {

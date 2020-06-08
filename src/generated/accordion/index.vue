@@ -21,14 +21,14 @@
   import demo1 from './demo1.vue';
   import demo2 from './demo2.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Accordion from '@/packages/accordion';
   import title from '../../packages/accordion/demo/README.md';
   import props from '../../packages/accordion/demo/props.md';
 
   Vue.use(Accordion);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2

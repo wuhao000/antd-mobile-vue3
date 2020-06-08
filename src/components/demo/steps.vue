@@ -6,21 +6,17 @@
                  type="check"></ae-icon>
       </m-step>
       <m-step>
-        <img slot="icon" src="http://p.qpic.cn/wwhead/nMl9ssowtibVGyrmvBiaibzDkbTTtujEz586TdUkcdV2UE4N0Zq780loXUkq1Ua5lYkfI2Sluibm11I/0" class="avatar avatar--icon">
+        <img slot="icon"
+             src="http://p.qpic.cn/wwhead/nMl9ssowtibVGyrmvBiaibzDkbTTtujEz586TdUkcdV2UE4N0Zq780loXUkq1Ua5lYkfI2Sluibm11I/0"
+             class="avatar avatar--icon">
       </m-step>
     </m-steps>
   </div>
 </template>
 <script lang="ts">
-  import PullRefresh from '@/packages/pull-refresh';
-  import MTabs from '@/packages/tabs';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(PullRefresh);
-  Vue.use(MTabs);
-
-  @Component({
+  @Options({
     name: 'Components'
   })
   export default class Components extends Vue {

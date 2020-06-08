@@ -15,13 +15,13 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import DatePickerView from '@/packages/date-picker-view';
   import title from '../../packages/date-picker-view/demo/README.md';
 
   Vue.use(DatePickerView);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

@@ -1,5 +1,5 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {Locale} from '../data-types';
 
@@ -13,7 +13,7 @@ export interface PropsType {
   clearIcon?: VNode;
 }
 
-@Component({
+@Options({
   name: 'Header'
 })
 class Header extends Vue {
@@ -51,4 +51,5 @@ class Header extends Vue {
     );
   }
 }
+
 export default Header as any;

@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import IconRes from '../../mixins/icon-res';
 import Badge from '../../badge';
 import {isVNode} from '../../utils/vnode';
 
-@Component({
+@Options({
   name: 'Tab'
 })
 class Tab extends Vue {
@@ -63,7 +63,7 @@ class Tab extends Vue {
     }
     if (dot) {
       return (
-        <Badge dot class={`${prefixCls}-badge tab-dot`}>
+        <Badge dot={true} class={`${prefixCls}-badge tab-dot`}>
           {iconDom}
         </Badge>
       );
@@ -94,8 +94,7 @@ class Tab extends Vue {
         </div>
         <p
           class={`${prefixCls}-title`}
-          style={{color: selected ? tintColor : unselectedTintColor}}
-        >
+          style={{color: selected ? tintColor : unselectedTintColor}}>
           {title}
         </p>
       </div>

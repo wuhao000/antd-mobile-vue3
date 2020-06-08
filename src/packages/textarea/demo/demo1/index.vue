@@ -18,14 +18,9 @@
   </div>
 </template>
 <script lang="ts">
-  import List from '@/packages/list';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
-  import MTextarea from '../../index';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(List);
-  Vue.use(MTextarea);
-  @Component({
+  @Options({
     name: 'Demo1'
   })
   export default class Demo1 extends Vue {

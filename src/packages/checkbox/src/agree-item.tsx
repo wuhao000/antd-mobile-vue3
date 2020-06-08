@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import getDataAttr from '../../utils/get-data-attr';
 import Checkbox from './checkbox';
 
 
-@Component({
+@Options({
   name: 'MAgreeItem'
 })
 export default class AgreeItem extends Vue {

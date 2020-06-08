@@ -1,9 +1,9 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import {FormComponent} from '../../mixins/form-component';
-import List from '../../list';
+import List, {ListItem} from '../../list';
 import {IS_IOS} from '../../utils/exenv';
 import TouchFeedback from '../../vmc-feedback';
 
@@ -20,7 +20,7 @@ function countSymbols(text = '') {
   return text.replace(regexAstralSymbols, '_').length;
 }
 
-@Component({
+@Options({
   name: 'MTextarea'
 })
 export default class Textarea extends FormComponent {
@@ -179,7 +179,7 @@ export default class Textarea extends FormComponent {
       }
     }
     return (
-      <List.Item class={wrapCls}
+      <ListItem class={wrapCls}
                  required={this.required}
                  disabled={this.isDisabled}
                  title={title}>
@@ -216,7 +216,7 @@ export default class Textarea extends FormComponent {
           </span>
           )}
         </div>
-      </List.Item>
+      </ListItem>
     );
   }
 }

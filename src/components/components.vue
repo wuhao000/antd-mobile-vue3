@@ -2,10 +2,10 @@
   <router-view></router-view>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Components'
   })
   export default class Components extends Vue {

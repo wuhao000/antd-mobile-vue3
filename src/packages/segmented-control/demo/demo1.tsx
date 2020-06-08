@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import './demo1.less';
 
-@Component({
+@Options({
   name: 'SegmentedControl'
 })
 export default class SegmentedControlExample extends Vue {

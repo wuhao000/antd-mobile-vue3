@@ -21,14 +21,14 @@
   import demo1 from './demo1.vue';
   import demo2 from './demo2.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Drawer from '@/packages/drawer';
   import title from '../../packages/drawer/demo/README.md';
   import props from '../../packages/drawer/demo/props.md';
 
   Vue.use(Drawer);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2

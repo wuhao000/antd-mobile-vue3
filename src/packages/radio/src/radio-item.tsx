@@ -1,13 +1,13 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import List from '../../list';
 import Radio from './radio';
 
 const ListItem = List.Item as any;
 
-@Component({
+@Options({
   name: 'MRadioItem'
 })
 class RadioItem extends Vue {

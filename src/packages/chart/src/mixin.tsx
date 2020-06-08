@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {camelAttrs} from './util';
 
@@ -9,7 +9,7 @@ const defaultShapeMap = {
   area: 'area'
 };
 
-@Component({
+@Options({
   name: 'VChartMixin'
 })
 export default class VChartMixin extends Vue {

@@ -1,11 +1,11 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Icon from '../../icon';
 import {getComponentLocale} from '../../utils/getLocale';
 import {Calendar as VMCalendar} from '../../vmc-calendar';
 import CalendarProps from '../../vmc-calendar/calendar-props';
 
-@Component({
+@Options({
   name: 'Calendar'
 })
 class Calendar extends CalendarProps {

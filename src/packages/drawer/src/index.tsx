@@ -1,9 +1,9 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import RmcDrawer from '../../vmc-drawer';
 
-@Component({
+@Options({
   name: 'Drawer'
 })
 export default class Drawer extends Vue {
@@ -42,21 +42,21 @@ export default class Drawer extends Vue {
   public render() {
     // @ts-ignore
     return <RmcDrawer
-      attrs={
-        {
-          ...this.$props,
-          ...this.$attrs,
-          sidebar: this.$slots.sidebar || this.sidebar
+        attrs={
+          {
+            ...this.$props,
+            ...this.$attrs,
+            sidebar: this.$slots.sidebar || this.sidebar
+          }
         }
-      }
-      open={this.value}
-      on={{
-        ...this.$listeners,
-        open: (value) => {
-          this.$emit('input', value);
-          this.$emit('open', value);
-        }
-      }}>
+        open={this.value}
+        on={{
+          ...this.$listeners,
+          open: (value) => {
+            this.$emit('input', value);
+            this.$emit('open', value);
+          }
+        }}>
       {this.$slots.default}
     </RmcDrawer>;
   }

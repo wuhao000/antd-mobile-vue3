@@ -29,14 +29,14 @@
   import demo5 from './demo5.vue';
   import demo6 from './demo6.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Tabs from '@/packages/tabs';
   import title from '../../packages/tabs/demo/README.md';
   import props from '../../packages/tabs/demo/props.md';
 
   Vue.use(Tabs);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2, demo3, demo4, demo5, demo6

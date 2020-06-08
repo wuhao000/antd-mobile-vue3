@@ -1,9 +1,8 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {ExtraData, Locale} from './data-types';
 
-@Component({
+@Options({
   name: 'DatePickerProps'
 })
 export default class DatePickerProps extends Vue {

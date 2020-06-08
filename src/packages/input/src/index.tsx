@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import {FormComponent} from '../../mixins/form-component';
 import List from '../../list';
@@ -11,6 +11,8 @@ import Input from './input';
 function noop() {
 }
 
+const ListItem = List.Item;
+
 function normalizeValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
@@ -18,7 +20,7 @@ function normalizeValue(value?: string) {
   return value + '';
 }
 
-@Component({
+@Options({
   name: 'InputItem'
 })
 export default class InputItem extends FormComponent {
@@ -108,7 +110,7 @@ export default class InputItem extends FormComponent {
       [`${prefixCls}-label-7`]: labelNumber === 7
     });
     if (this.$slots.default) {
-      return <div class={labelCls}>{this.$slots.default}</div>;
+      return <div class={labelCls}>{this.$slots.default()}</div>;
     } else if (this.title) {
       return <div class={labelCls}>{this.title}</div>;
     }
@@ -342,7 +344,7 @@ export default class InputItem extends FormComponent {
       classNameProp = 'h5numInput';
     }
     return (
-      <List.Item title={this.renderLabel()}
+      <ListItem title={this.renderLabel()}
                  required={this.required}
                  error={this.error}
                  errorMessage={this.errorMessage}
@@ -424,7 +426,7 @@ export default class InputItem extends FormComponent {
             {extra}
           </div>
         ) : null}
-      </List.Item>
+      </ListItem>
     );
   }
 }

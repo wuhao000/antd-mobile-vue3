@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Pagination from '@/packages/pagination';
   import title from '../../packages/pagination/demo/README.md';
   import props from '../../packages/pagination/demo/props.md';
 
   Vue.use(Pagination);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

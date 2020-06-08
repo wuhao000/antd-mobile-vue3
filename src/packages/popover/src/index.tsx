@@ -1,34 +1,34 @@
 import {Popover} from 'ant-design-vue';
 import classNames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import {cloneElement} from '../../utils/vnode';
 
 
 function recursiveCloneChildren(
-  children: VNode[],
-  cb = (ch: VNode, _: number) => ch
+    children: VNode[],
+    cb = (ch: VNode, _: number) => ch
 ): VNode[] {
   return children.map((child, index) => {
     const newChild = cb(child, index);
     if (
-      typeof newChild !== 'string' &&
-      typeof newChild !== 'number' &&
-      newChild &&
-      newChild.children
+        typeof newChild !== 'string' &&
+        typeof newChild !== 'number' &&
+        newChild &&
+        newChild.children
     ) {
       return cloneElement(
-        newChild,
-        {},
-        recursiveCloneChildren(newChild.children, cb)
+          newChild,
+          {},
+          recursiveCloneChildren(newChild.children, cb)
       );
     }
     return newChild;
   });
 }
 
-@Component({
+@Options({
   name: 'MPopover'
 })
 class MPopover extends Vue {
@@ -87,4 +87,5 @@ class MPopover extends Vue {
     </Popover>;
   }
 }
+
 export default MPopover as any;

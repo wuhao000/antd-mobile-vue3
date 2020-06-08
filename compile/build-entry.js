@@ -28,9 +28,9 @@ const version = '${version}';
 const components = [
   ${installList.join(',\n  ')}
 ];
-const install = (Vue: VueConstructor) => {
+const install = (app) => {
   components.forEach(Component => {
-    Vue.use(Component);
+    app.use(Component);
   });
 };
 /* istanbul ignore if */

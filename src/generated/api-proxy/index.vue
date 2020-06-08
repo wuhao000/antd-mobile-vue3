@@ -15,13 +15,13 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
 
   import title from '../../packages/api-proxy/demo/README.md';
 
 
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

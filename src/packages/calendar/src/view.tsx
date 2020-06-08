@@ -1,4 +1,4 @@
-import Component from 'vue-class-component';
+import {Options} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Icon from '../../icon';
 import {getComponentLocale} from '../../utils/getLocale';
@@ -15,7 +15,7 @@ const beginOfMonth = () => {
   return new Date(now.getFullYear(), now.getMonth(), 1);
 };
 
-@Component({
+@Options({
   name: 'Calendar'
 })
 class Calendar extends CalendarProps {
@@ -35,32 +35,32 @@ class Calendar extends CalendarProps {
 
   public render() {
     const locale = getComponentLocale(this.$props, {}, 'Calendar', () =>
-      require('./locale/zh_CN')
+        require('./locale/zh_CN')
     );
     // @ts-ignore
     const Header = VMCalendar.DefaultHeader;
     return (
-      // @ts-ignore
-      <VMCalendar
-        class={this.prefixCls + '-view'}
-        locale={locale}
-        renderHeader={headerProps => (
-          <Header {...headerProps} closeIcon={<Icon type="cross"/>}/>
-        )}
-        onSelectHasDisableDate={(...args) => {
-          this.$emit('select-has-disable-date', ...args);
-        }}
-        attrs={
-          {
-            ...this.$props,
-            type: 'one',
-            displayMode: true,
-            minDate: this.minDate || beginOfMonth(),
-            maxDate: this.maxDate || endOfMonth()
-          }
-        }
-        visible={this.state.visible}
-      />
+        // @ts-ignore
+        <VMCalendar
+            class={this.prefixCls + '-view'}
+            locale={locale}
+            renderHeader={headerProps => (
+                <Header {...headerProps} closeIcon={<Icon type="cross"/>}/>
+            )}
+            onSelectHasDisableDate={(...args) => {
+              this.$emit('select-has-disable-date', ...args);
+            }}
+            attrs={
+              {
+                ...this.$props,
+                type: 'one',
+                displayMode: true,
+                minDate: this.minDate || beginOfMonth(),
+                maxDate: this.maxDate || endOfMonth()
+              }
+            }
+            visible={this.state.visible}
+        />
     );
   }
 }

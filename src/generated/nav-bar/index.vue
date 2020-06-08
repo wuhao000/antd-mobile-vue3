@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import NavBar from '@/packages/nav-bar';
   import title from '../../packages/nav-bar/demo/README.md';
   import props from '../../packages/nav-bar/demo/props.md';
 
   Vue.use(NavBar);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

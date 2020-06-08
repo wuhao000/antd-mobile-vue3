@@ -48,7 +48,7 @@ export default class SliderItem extends FormComponent {
 
   public render() {
     return (
-        <ListItem multipleLine
+        <ListItem multipleLine={true}
                   disabled={this.isDisabled}>
           {this.title}
           <ListItemBrief style={{padding: '15px'}}>

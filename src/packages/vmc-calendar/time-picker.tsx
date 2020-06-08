@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import DateTimePicker from '../vmc-date-picker';
 import {Locale} from './data-types';
@@ -7,7 +7,7 @@ import {Locale} from './data-types';
 export const MIN_DATE = new Date(0, 0, 0, 0, 0);
 export const MAX_DATE = new Date(9999, 11, 31, 23, 59, 59);
 
-@Component({
+@Options({
   name: 'TimePicker'
 })
 class TimePicker extends Vue {
@@ -89,7 +89,7 @@ class TimePicker extends Vue {
             minDate={this.getMinTime(date)}
             maxDate={this.getMaxTime(date)}
             onChange={this.onDateChange}
-            use12Hours
+            use12Hours={true}
           />
         }
       </div>

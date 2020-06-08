@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {ImagePicker, SegmentedControl, WingBlank} from '../../index';
 
 const data = [{
@@ -10,7 +10,7 @@ const data = [{
   id: '2122'
 }];
 
-@Component({
+@Options({
   name: 'ImagePickerExample'
 })
 

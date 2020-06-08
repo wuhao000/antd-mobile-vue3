@@ -26,11 +26,11 @@
   import AegisUI from '@/packages/global';
   import HttpMethod from '@/packages/http-method';
   import MButton from '@/packages/button';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+
+  import {Options, Vue} from 'vue-class-component';
   import {ApiResponse} from '../../../../../types';
 
-  @Component({
+  @Options({
     name: 'Demo1',
     components: {MButton}
   })

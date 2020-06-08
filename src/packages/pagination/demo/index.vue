@@ -1,9 +1,8 @@
 <template></template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
 
-  @Component({
+  @Options({
     name: 'PaginationDemo'
   })
   export default class ActionSheetDemo extends Vue {

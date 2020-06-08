@@ -1,9 +1,9 @@
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import DatePicker from '../index';
 
+const DatePickerItem = DatePicker.Item;
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
 // GMT is not currently observed in the UK. So use UTC now.
@@ -28,7 +28,7 @@ function formatDate(date) {
 
 // If not using `List.Item` as children
 // The `onClick / extra` props need to be processed within the component
-@Component({
+@Options({
   name: 'CustomChildren'
 })
 class CustomChildren extends Vue {
@@ -38,7 +38,7 @@ class CustomChildren extends Vue {
 
   public render() {
     return <div
-        onclick={() => {
+        onClick={() => {
           this.$emit('click');
         }}
         style={{backgroundColor: '#fff', height: '45px', lineHeight: '45px', padding: '0 15px'}}
@@ -50,7 +50,7 @@ class CustomChildren extends Vue {
 }
 
 
-@Component({
+@Options({
   name: 'Demo'
 })
 export default class Demo extends Vue {
@@ -67,16 +67,16 @@ export default class Demo extends Vue {
   public render() {
     return (
         <m-list class="date-picker-list" style={{backgroundColor: 'white'}}>
-          <DatePicker.Item
+          <DatePickerItem
               title="Datetime"
               value={this.state.date}
               onChange={date => this.state.date = date}>
-          </DatePicker.Item>
-          <DatePicker.Item
+          </DatePickerItem>
+          <DatePickerItem
               title="Timestamp"
               value={this.state.timestamp}
               onChange={date => this.state.date = date}>
-          </DatePicker.Item>
+          </DatePickerItem>
           <m-date-picker
               mode="date"
               title="Select Date"

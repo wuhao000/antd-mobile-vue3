@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import defaultLocale from './locale/zh_CN';
 
@@ -28,7 +28,7 @@ interface IDatePickerProps {
   use12Hours?: boolean;
 }
 
-@Component({
+@Options({
   name: 'DatePickerProps'
 })
 class DatePickerProps extends Vue<IDatePickerProps> {

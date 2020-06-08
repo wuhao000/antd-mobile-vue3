@@ -1,10 +1,10 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Watch} from 'vue-property-decorator';
 import {cloneElement, setListeners, setProps} from '../utils/vnode';
 import {PopupPickerProps} from './popup-picker-types';
 
 export default function PopupMixin(getModal, newProps) {
-  @Component({name: 'PopupMixin'})
+  @Options({name: 'PopupMixin'})
   class PopupMixin extends PopupPickerProps {
     public picker: any;
     public state = {

@@ -94,14 +94,14 @@ function createDemoIndex(component: Component, componentDemoRootPath, demos: Dem
 
   function generateDecorator(demos: DemoDescriptor[]) {
     if (demos.length) {
-      return `@Component({
+      return `@Options({
     name: 'ComponentDemo',
     components: {
       ${demos.map(it => it.name).join(', ')}
     }
   })`;
     } else {
-      return `@Component({
+      return `@Options({
     name: 'ComponentDemo'
   })`;
     }
@@ -111,7 +111,7 @@ function createDemoIndex(component: Component, componentDemoRootPath, demos: Dem
 <script lang="ts">
 ${demoImports}
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
 ${component.type !== 'tool' ? `  import ${component.upperCase} from '@/packages/${component.dir}';` : ''}
   ${mdImports}

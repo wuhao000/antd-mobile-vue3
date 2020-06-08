@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import NoticeBar from '@/packages/notice-bar';
   import title from '../../packages/notice-bar/demo/README.md';
   import props from '../../packages/notice-bar/demo/props.md';
 
   Vue.use(NoticeBar);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

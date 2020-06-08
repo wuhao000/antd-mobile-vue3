@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import treeFilter from 'array-tree-filter';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Provide, Watch} from 'vue-property-decorator';
 import {cloneVNode, setProps} from '../../utils/vnode';
 import RMCCascader from '../../vmc-cascader/cascader';
@@ -11,7 +11,8 @@ import RMCMultiPicker from '../../vmc-picker/multi-picker';
 import RMCPicker from '../../vmc-picker/picker';
 import {PickerData} from './props-type';
 
-@Component({
+const RMCPickerItem = RMCPicker.Item;
+@Options({
   name: 'Picker'
 })
 export default class Picker extends Vue {
@@ -121,7 +122,7 @@ export default class Picker extends Vue {
             {col.map(item => {
               return (
                   // @ts-ignore
-                  <RMCPicker.Item key={item.value} value={item.value}>{item.label}</RMCPicker.Item>
+                  <RMCPickerItem key={item.value} value={item.value}>{item.label}</RMCPickerItem>
               );
             })}
           </RMCPicker>

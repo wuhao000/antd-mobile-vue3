@@ -1,10 +1,10 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import List from '../../list';
 import OptionsBasedComponent from '../../mixins/options-based-component';
 import CheckboxItem from './checkbox-item';
 
-@Component({
+@Options({
   name: 'MCheckboxList'
 })
 class MCheckboxList extends OptionsBasedComponent {

@@ -8,11 +8,11 @@
 <script lang="ts">
   import source from './demo4.txt';
   import md from '../../packages/tabs/demo/demo4.md';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+
+  import {Options, Vue} from 'vue-class-component';
   import CodeBox from '../../components/code-box.vue';
 
-  @Component({
+  @Options({
     name: 'Demo4',
     components: {CodeBox}
  })

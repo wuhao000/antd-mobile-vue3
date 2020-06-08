@@ -6,10 +6,10 @@
 <script lang="ts">
   import DemoWrapper from '@/components/demo-wrapper.vue';
   {{{imports}}}
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo',
     components: {{{{components}}} DemoWrapper}
   })

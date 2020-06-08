@@ -27,10 +27,10 @@
   </m-wing-blank>
 </template>
 <script lang="ts">
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
   import BaseDemo from './base';
 
-  @Component({
+  @Options({
     name: 'CarouselMode3'
   })
   export default class CarouselMode3 extends BaseDemo {

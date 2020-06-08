@@ -1,11 +1,11 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Provide, Watch} from 'vue-property-decorator';
 import Tabs from '../../tabs';
 import Item from './item';
 
 
-@Component({
+@Options({
   name: 'MTabBar'
 })
 class TabBar extends Vue {
@@ -89,7 +89,7 @@ class TabBar extends Vue {
   public mounted() {
     if (this.$slots.default) {
       this.content = this.$slots.default.filter(it => it.context).map(it =>
-        it.componentInstance.$slots.default || it.componentInstance.$slots.content || ''
+          it.componentInstance.$slots.default || it.componentInstance.$slots.content || ''
       );
     }
   }
@@ -105,18 +105,18 @@ class TabBar extends Vue {
     } = this;
     const tabs = this.getTabs();
     return (
-      <div class={prefixCls}>
-        <Tabs tabs={tabs}
-              renderTabBar={this.renderTabBar}
-              tabBarPosition={tabBarPosition}
-              page={this.store.currentTab < 0 ? undefined : this.store.currentTab}
-              animated={animated}
-              swipeable={swipeable}
-              noRenderContent={noRenderContent}
-              prerenderingSiblingsNumber={prerenderingSiblingsNumber}>
-          {this.content}
-        </Tabs>
-      </div>
+        <div class={prefixCls}>
+          <Tabs tabs={tabs}
+                renderTabBar={this.renderTabBar}
+                tabBarPosition={tabBarPosition}
+                page={this.store.currentTab < 0 ? undefined : this.store.currentTab}
+                animated={animated}
+                swipeable={swipeable}
+                noRenderContent={noRenderContent}
+                prerenderingSiblingsNumber={prerenderingSiblingsNumber}>
+            {this.content}
+          </Tabs>
+        </div>
     );
   }
 }

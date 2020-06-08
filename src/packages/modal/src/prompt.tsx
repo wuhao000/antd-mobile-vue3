@@ -3,22 +3,22 @@ import closest from '../../utils/closest';
 import Modal from './modal';
 
 export default function prompt(
-  title: string | VNode,
-  message: string | VNode,
-  callbackOrActions: Array<{
-    text: string, onPress?: (...args: any[]) => any, style?: object
-  }> | ((...args: any[]) => any) = [{text: '取消'}, {text: '确认'}],
-  type = 'default',
-  defaultValue = '',
-  placeholders = ['', ''],
-  platform = 'ios'
+    title: string | VNode,
+    message: string | VNode,
+    callbackOrActions: Array<{
+      text: string, onPress?: (...args: any[]) => any, style?: object
+    }> | ((...args: any[]) => any) = [{text: '取消'}, {text: '确认'}],
+    type = 'default',
+    defaultValue = '',
+    placeholders = ['', ''],
+    platform = 'ios'
 ) {
   let closed = false;
   return new Promise((resolve, reject) => {
 
     const copyDefaultValue = typeof defaultValue === 'string'
-      ? defaultValue
-      : typeof defaultValue === 'number' ? `${defaultValue}` : '';
+        ? defaultValue
+        : typeof defaultValue === 'number' ? `${defaultValue}` : '';
 
     const prefixCls = 'am-modal';
 
@@ -68,9 +68,9 @@ export default function prompt(
     function handleConfirm() {
       const {text = '', password = ''} = data;
       const callbackArgs =
-        type === 'login-password'
-          ? [text, password]
-          : type === 'secure-text' ? [password] : [text];
+          type === 'login-password'
+              ? [text, password]
+              : type === 'secure-text' ? [password] : [text];
       return resolve(callbackArgs[0]);
     }
 
@@ -112,8 +112,8 @@ export default function prompt(
             closed = true;
             close();
           })
-            .catch(() => {
-            });
+              .catch(() => {
+              });
         } else {
           closed = true;
           close();
@@ -132,6 +132,7 @@ export default function prompt(
         e.preventDefault();
       }
     }
+
     modal = new Vue({
       el: div,
       methods: {
@@ -140,97 +141,97 @@ export default function prompt(
           switch (type) {
             case 'login-password':
               inputDom = (
-                <div class={`${prefixCls}-input-container`}>
-                  <div class={`${prefixCls}-input`}>
-                    <label>
-                      <input
-                        type="text"
-                        defaultValue={data.text}
-                        ref={input => focusFn(input)}
-                        onClick={onClick}
-                        onChange={onChange}
-                        placeholder={placeholders[0]}
-                      />
-                    </label>
+                  <div class={`${prefixCls}-input-container`}>
+                    <div class={`${prefixCls}-input`}>
+                      <label>
+                        <input
+                            type="text"
+                            defaultValue={data.text}
+                            ref={input => focusFn(input)}
+                            onClick={onClick}
+                            onChange={onChange}
+                            placeholder={placeholders[0]}
+                        />
+                      </label>
+                    </div>
+                    <div class={`${prefixCls}-input`}>
+                      <label>
+                        <input
+                            type="password"
+                            defaultValue={data.password}
+                            onClick={onClick}
+                            onChange={onChange}
+                            placeholder={placeholders[1]}
+                        />
+                      </label>
+                    </div>
                   </div>
-                  <div class={`${prefixCls}-input`}>
-                    <label>
-                      <input
-                        type="password"
-                        defaultValue={data.password}
-                        onClick={onClick}
-                        onChange={onChange}
-                        placeholder={placeholders[1]}
-                      />
-                    </label>
-                  </div>
-                </div>
               );
               break;
             case 'secure-text':
               inputDom = (
-                <div class={`${prefixCls}-input-container`}>
-                  <div class={`${prefixCls}-input`}>
-                    <label>
-                      <input
-                        type="password"
-                        defaultValue={data.password}
-                        ref={input => focusFn(input)}
-                        onClick={onClick}
-                        onChange={onChange}
-                        placeholder={placeholders[0]}
-                      />
-                    </label>
+                  <div class={`${prefixCls}-input-container`}>
+                    <div class={`${prefixCls}-input`}>
+                      <label>
+                        <input
+                            type="password"
+                            defaultValue={data.password}
+                            ref={input => focusFn(input)}
+                            onClick={onClick}
+                            onChange={onChange}
+                            placeholder={placeholders[0]}
+                        />
+                      </label>
+                    </div>
                   </div>
-                </div>
               );
               break;
             case 'default':
             default:
               inputDom = (
-                <div class={`${prefixCls}-input-container`}>
-                  <div class={`${prefixCls}-input`}>
-                    <label>
-                      <input
-                        type="text"
-                        value={data.text}
-                        ref="input"
-                        hook={{
-                          mounted: () => {
-                            focusFn(this.$refs['input']);
-                          }
-                        }}
-                        onClick={onClick}
-                        onChange={onChange}
-                        placeholder={placeholders[0]}
-                      />
-                    </label>
+                  <div class={`${prefixCls}-input-container`}>
+                    <div class={`${prefixCls}-input`}>
+                      <label>
+                        <input
+                            type="text"
+                            value={data.text}
+                            ref="input"
+                            hook={{
+                              mounted: () => {
+                                focusFn(this.$refs['input']);
+                              }
+                            }}
+                            onClick={onClick}
+                            onChange={onChange}
+                            placeholder={placeholders[0]}
+                        />
+                      </label>
+                    </div>
                   </div>
-                </div>
               );
           }
           return (
-            <div>
-              {message}
-              {inputDom}
-            </div>
+              <div>
+                {message}
+                {inputDom}
+              </div>
           );
         }
       },
       render() {
         // @ts-ignore
         return <Modal
-          visible
-          transparent
-          prefixCls={prefixCls}
-          title={title}
-          closable={false}
-          maskClosable={false}
-          transitionName="am-zoom"
-          footer={footer}
-          maskTransitionName="am-fade"
-          platform={platform}
-          wrapProps={{onTouchStart: onWrapTouchStart}}>
+            visible={true}
+            transparent={true}
+            prefixCls={prefixCls}
+            title={title}
+            closable={false}
+            maskClosable={false}
+            transitionName="am-zoom"
+            footer={footer}
+            maskTransitionName="am-fade"
+            platform={platform}
+            wrapProps={{onTouchStart: onWrapTouchStart}}>
           <div class={`${prefixCls}-propmt-content`}>{this.createContent()}</div>
         </Modal>;
       }

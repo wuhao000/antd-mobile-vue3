@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Sticky, StickyContainer} from '../../sticky';
 import Tabs from '../src';
 
@@ -9,14 +8,15 @@ const tabs = [
   {title: 'Third Tab', key: 't3'}
 ];
 
-@Component({
+const DefaultTabBar = Tabs.DefaultTabBar;
+@Options({
   name: 'TabsExample'
 })
 export default class TabsExample extends Vue {
 
   public renderTabBar(props) {
     return <Sticky>
-      <div style={{zIndex: 1}}><Tabs.DefaultTabBar attrs={props} /></div>
+      <div style={{zIndex: 1}}><DefaultTabBar attrs={props}/></div>
     </Sticky>;
   }
 

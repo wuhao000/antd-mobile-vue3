@@ -34,11 +34,11 @@
   </d-menu>
 </template>
 <script lang="ts">
-  import {Component, Prop, Vue} from 'vue-property-decorator';
-  import {RouteConfig} from 'vue-router';
+  import {Options, Vue} from 'vue-class-component';
+  import {Prop} from 'vue-property-decorator';
 
   const tagNames = ['布局', '导航', '数据入口', '数据展示', '反馈', '手势', '组合', '其他'];
-  @Component
+  @Options({})
   export default class NavList extends Vue {
     @Prop({
       type: Array

@@ -1,11 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classNames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
 import TouchFeedback from '../../vmc-feedback';
 
-@Component({
+@Options({
   name: 'Brief'
 })
 export class Brief extends Vue {
@@ -23,7 +23,7 @@ export class Brief extends Vue {
   }
 }
 
-@Component({
+@Options({
   name: 'ListItem'
 })
 class Item extends Vue {
@@ -227,7 +227,7 @@ class Item extends Vue {
     return (
         // @ts-ignore
         <TouchFeedback
-            disabled={disabled || !this.$listeners.click || !this.touchFeedback || (this.list && !this.list.touchFeedback)}
+            disabled={disabled || !this.$attrs.onClick || !this.touchFeedback || (this.list && !this.list.touchFeedback)}
             activeStyle={activeStyle}
             activeClassName={`${prefixCls}-item-active`}>
           {content}

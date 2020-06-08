@@ -21,14 +21,14 @@
   import demo2 from './demo2.vue';
   import demo3 from './demo3.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Input from '@/packages/input';
   import title from '../../packages/input/demo/README.md';
   import props from '../../packages/input/demo/props.md';
 
   Vue.use(Input);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo2, demo3

@@ -26,16 +26,10 @@
   </div>
 </template>
 <script lang="ts">
-  import PullRefresh from '@/packages/pull-refresh';
-  import MTabs from '@/packages/tabs';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
   import {Watch} from 'vue-property-decorator';
 
-  Vue.use(PullRefresh);
-  Vue.use(MTabs);
-
-  @Component({
+  @Options({
     name: 'Components'
   })
   export default class Components extends Vue {

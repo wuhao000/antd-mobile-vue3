@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import DatePicker from '@/packages/date-picker';
   import title from '../../packages/date-picker/demo/README.md';
   import props from '../../packages/date-picker/demo/props.md';
 
   Vue.use(DatePicker);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

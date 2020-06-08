@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Calendar from '@/packages/calendar';
   import title from '../../packages/calendar/demo/README.md';
   import props from '../../packages/calendar/demo/props.md';
 
   Vue.use(Calendar);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

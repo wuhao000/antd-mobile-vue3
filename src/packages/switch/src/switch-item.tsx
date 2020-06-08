@@ -1,6 +1,6 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import {FormComponent} from '../../mixins/form-component';
 import List from '../../list';
@@ -8,7 +8,7 @@ import Switch from './switch';
 
 const ListItem = List.Item as any;
 
-@Component({
+@Options({
   name: 'SwitchItem'
 })
 export default class SwitchItem extends FormComponent {

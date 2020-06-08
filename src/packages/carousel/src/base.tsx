@@ -342,11 +342,11 @@ class CarouselBase extends Vue {
             </ul>
           </div>
           {this.decorators ?
-              this.decorators.map((Decorator, index) => (
+              this.decorators.map(({component: Decorator}, index) => (
                   <div style={{...this.getDecoratorStyles(Decorator.position), ...(Decorator.style || {})}}
                        class={'slider-decorator-' + index}
                        key={index}>
-                    <Decorator.component
+                    <Decorator
                         props={
                           {
                             currentSlide: this.state.currentSlide,

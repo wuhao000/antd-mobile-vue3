@@ -15,13 +15,13 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import LoadingDirective from '@/packages/loading-directive';
   import title from '../../packages/loading-directive/demo/README.md';
 
   Vue.use(LoadingDirective);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

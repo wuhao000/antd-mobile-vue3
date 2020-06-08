@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Icon from '@/packages/icon';
   import title from '../../packages/icon/demo/README.md';
   import props from '../../packages/icon/demo/props.md';
 
   Vue.use(Icon);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

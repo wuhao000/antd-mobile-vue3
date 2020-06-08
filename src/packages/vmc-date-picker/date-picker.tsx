@@ -1,9 +1,11 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Watch} from 'vue-property-decorator';
 import MultiPicker from '../vmc-picker/multi-picker';
 import Picker from '../vmc-picker/picker';
 import DatePickerProps from './date-picker-props';
 
+
+const PickerItem = Picker.Item;
 function getDaysInMonth(date) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 }
@@ -28,7 +30,7 @@ const MONTH = 'month';
 const YEAR = 'year';
 const ONE_DAY = 24 * 60 * 60 * 1000;
 
-@Component({
+@Options({
   name: 'DatePicker'
 })
 class DatePicker extends DatePickerProps {
@@ -534,10 +536,10 @@ class DatePicker extends DatePickerProps {
                       key={p.key}>
                 {p.props.children.map(item => (
                     // @ts-ignore
-                    <Picker.Item key={item.value}
+                    <PickerItem key={item.value}
                                  value={item.value}
                                  label={item.label}>
-                    </Picker.Item>
+                    </PickerItem>
                 ))}
               </Picker>
           ))}

@@ -1,12 +1,12 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
-import List from '../../list';
+import List, {ListItem} from '../../list';
 import BaseInputComponent from '../../mixins/base-input-component';
 import Calendar from './index';
 
 const MIN_DATE = new Date(2000, 1, 1, 0, 0, 0);
 const MAX_DATE = new Date(new Date().getFullYear() + 10, 12, 31, 23, 59, 59);
-@Component({
+@Options({
   name: 'MCalendarItem'
 })
 export default class MCalendarItem extends BaseInputComponent {
@@ -93,7 +93,7 @@ export default class MCalendarItem extends BaseInputComponent {
   }
 
   public render() {
-    return <List.Item text={!!this.displayValue}
+    return <ListItem text={!!this.displayValue}
                       required={this.required}
                       arrow="horizontal"
                       title={this.title}
@@ -112,7 +112,7 @@ export default class MCalendarItem extends BaseInputComponent {
       </Calendar>
       <span>{this.title}</span>
       <span slot="extra">{this.displayValue || this.placeholder}</span>
-    </List.Item>;
+    </ListItem>;
   }
 
 }

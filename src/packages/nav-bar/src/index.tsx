@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Icon from '../../icon';
 
-@Component({
+@Options({
   name: 'NavBar'
 })
 class NavBar extends Vue {

@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import WhiteSpace from '@/packages/white-space';
   import title from '../../packages/white-space/demo/README.md';
   import props from '../../packages/white-space/demo/props.md';
 
   Vue.use(WhiteSpace);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

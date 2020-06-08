@@ -1,8 +1,8 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'TouchFeedback'
 })
 class TouchFeedback extends Vue {
@@ -20,7 +20,7 @@ class TouchFeedback extends Vue {
 
   public triggerEvent(type, isActive, ev) {
     const eventType = `on${type}`;
-    const children = this.$slots.default && this.$slots.default[0];
+    const children = this.$slots.default && this.$slots.default()[0];
     if (children[eventType]) {
       children[eventType](ev);
     }
@@ -62,32 +62,35 @@ class TouchFeedback extends Vue {
   public render() {
     const {disabled, activeClassName} = this;
     const events = disabled ? undefined : {
-      touchstart: this.onTouchStart,
-      touchmove: this.onTouchMove,
-      touchend: this.onTouchEnd,
-      touchcancel: this.onTouchCancel,
-      mousedown: this.onMouseDown,
-      mouseup: this.onMouseUp,
-      mouseleave: this.onMouseLeave
+      onTouchstart: this.onTouchStart,
+      onTouchmove: this.onTouchMove,
+      onTouchend: this.onTouchEnd,
+      onTouchcancel: this.onTouchCancel,
+      onMousedown: this.onMouseDown,
+      onMouseup: this.onMouseUp,
+      onMouseleave: this.onMouseLeave
     };
-    const child: VNode = this.$slots.default[0];
+    const child: VNode = this.$slots.default()[0];
     if (!disabled && this.active) {
-      if (child.elm) {
-        const elm = child.elm as HTMLElement;
+      if (child.el) {
+        const elm = child.el as HTMLElement;
         if (!elm.classList.contains(activeClassName)) {
           elm.classList.add(activeClassName);
         }
       }
     } else {
-      if (child.elm) {
-        const elm = child.elm as HTMLElement;
+      if (child.el) {
+        const elm = child.el as HTMLElement;
         if (elm.classList.contains(activeClassName)) {
           elm.classList.remove(activeClassName);
         }
       }
     }
-    const on = child.data.on;
-    child.data.on = on ? Object.assign(on, events) : events;
+    if (child.props) {
+      Object.assign(child.props, events);
+    } else {
+      child.props = events;
+    }
     return child;
   }
 }

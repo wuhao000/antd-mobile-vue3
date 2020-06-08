@@ -7,4 +7,10 @@ MList.install = Vue => {
   Vue.component('MListItemBrief', MList.Item.Brief);
 };
 
+const ListItem =  MList.Item;
+
+export {
+  ListItem
+}
+
 export default MList;

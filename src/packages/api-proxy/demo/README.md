@@ -48,5 +48,5 @@ export default plugin;
 
 ```typescript
 import Api from './api';
-Vue.use(Api);
+app.use(Api);
 ```

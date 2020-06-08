@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import ActivityIndicator from '@/packages/activity-indicator';
   import title from '../../packages/activity-indicator/demo/README.md';
   import props from '../../packages/activity-indicator/demo/props.md';
 
   Vue.use(ActivityIndicator);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

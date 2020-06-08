@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import zhCN from '../src/locale/zh_CN';
 
 const extra = {
@@ -20,7 +20,7 @@ Object.keys(extra).forEach((key) => {
   }
 });
 
-@Component({
+@Options({
   name: 'Test'
 })
 export default class Test extends Vue {

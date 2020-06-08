@@ -1,9 +1,9 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import locale from './locale/zh_CN';
 
-@Component({
+@Options({
   name: 'DatePickerProps'
 })
 export default class DatePickerProps extends Vue<IDatePickerPropsType> {

@@ -1,7 +1,6 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 
-@Component({
+@Options({
   name: 'Test'
 })
 export default class Test extends Vue {
@@ -19,11 +18,11 @@ export default class Test extends Vue {
     return (<div>
       <m-list renderHeader={() => 'CheckboxItem demo'}>
         {data.map(i => (
-          <m-checkbox-item key={i.value} onChange={() => this.onChange(i.value)}>
-            {i.label}
-          </m-checkbox-item>
+            <m-checkbox-item key={i.value} onChange={() => this.onChange(i.value)}>
+              {i.label}
+            </m-checkbox-item>
         ))}
-        <m-checkbox-item key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
+        <m-checkbox-item key="disabled" data-seed="logId" disabled={true} defaultChecked={true} multipleLine={true}>
           Undergraduate
           <m-list-item-brief>Auxiliary text</m-list-item-brief>
         </m-checkbox-item>

@@ -1,8 +1,7 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'Portal'
 })
 class Portal extends Vue {
@@ -19,7 +18,8 @@ class Portal extends Vue {
   }
 
   public render() {
-    return this.$slots.default;
+    return this.$slots.default();
   }
 }
+
 export default Portal as any;

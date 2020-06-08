@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Progress from '@/packages/progress';
   import title from '../../packages/progress/demo/README.md';
   import props from '../../packages/progress/demo/props.md';
 
   Vue.use(Progress);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

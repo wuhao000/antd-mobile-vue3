@@ -1,9 +1,9 @@
 <template></template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'WingBlankDemo'
   })
   export default class ActionSheetDemo extends Vue {

@@ -1,6 +1,6 @@
 /* eslint global-require:0, no-nested-ternary:0 */
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import './demo3.less';
 
 const data = [
@@ -73,7 +73,7 @@ const data = [
   }
 ];
 
-@Component({
+@Options({
   name: 'MenuExample'
 })
 export default class MultiMenuExample extends Vue {

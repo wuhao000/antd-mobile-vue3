@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Textarea from '@/packages/textarea';
   import title from '../../packages/textarea/demo/README.md';
   import props from '../../packages/textarea/demo/props.md';
 
   Vue.use(Textarea);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

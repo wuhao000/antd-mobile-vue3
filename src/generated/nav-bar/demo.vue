@@ -8,10 +8,10 @@
 <script lang="ts">
   import DemoWrapper from '@/components/demo-wrapper.vue';
   import demo1 from '@/packages/nav-bar/demo/demo1.vue';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo',
     components: {demo1, DemoWrapper}
   })

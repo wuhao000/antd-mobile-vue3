@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import List from '../../list';
+
+import {Options, Vue} from 'vue-class-component';
+import List, {ListItem} from '../../list';
 import InputItem from '../index';
 
 // 通过自定义 moneyKeyboardWrapProps 修复虚拟键盘滚动穿透问题
@@ -14,7 +14,7 @@ if (isIPhone) {
   };
 }
 
-@Component({
+@Options({
   name: 'H5NumberInputExample'
 })
 export default class H5NumberInputExample extends Vue {
@@ -32,14 +32,14 @@ export default class H5NumberInputExample extends Vue {
             type={type}
             value={100}
             placeholder="start from left"
-            clear
+            clear={true}
             moneyKeyboardAlign="left"
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
           >光标在左</InputItem>
           <InputItem
             type={type}
             placeholder="start from right"
-            clear
+            clear={true}
             onChange={(v) => {
               console.log('onChange', v);
             }}
@@ -53,17 +53,17 @@ export default class H5NumberInputExample extends Vue {
             placeholder="money format"
             ref="input"
             onConfirm={v => console.log('onVirtualKeyboardConfirm:', v)}
-            clear
+            clear={true}
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
           >数字键盘</InputItem>
-          <List.Item>
+          <ListItem>
             <div
               style={{width: '100%', color: '#108ee9', textAlign: 'center'}}
               onClick={() => (this.$refs.input as any).focus()}
             >
               click to focus
             </div>
-          </List.Item>
+          </ListItem>
         </List>
       </div>
     );

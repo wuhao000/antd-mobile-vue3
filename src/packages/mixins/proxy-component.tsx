@@ -1,7 +1,7 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import Emitter from './emitter';
 
-@Component({
+@Options({
   name: 'ProxyComponent'
 })
 export default class ProxyComponent extends Emitter {

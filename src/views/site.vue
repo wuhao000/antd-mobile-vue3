@@ -1,32 +1,38 @@
 <template>
-  <ae-layout>
-    <ae-layout-header id="app-header">
+  <a-layout>
+    <a-layout-header id="app-header">
       <ui-header/>
-    </ae-layout-header>
-    <ae-layout id="app-body">
-      <ae-layout-sider v-show="!isDemo"
-                       id="app-nav"
-                       width="220px">
-        <nav-list :menu-list="routersName"></nav-list>
-      </ae-layout-sider>
-      <ae-layout-content :id="(!$route.meta || $route.meta.hideNav !== true) ? 'app-content' : ''">
+    </a-layout-header>
+    <a-layout id="app-body">
+      <a-layout-sider v-show="!isDemo"
+                      id="app-nav"
+                      width="220px">
+        <left-nav :menu-list="routersName"></left-nav>
+      </a-layout-sider>
+      <a-layout-content :id="(!$route.meta || $route.meta.hideNav !== true) ? 'app-content' : ''">
         <router-view/>
-      </ae-layout-content>
-      <ae-layout-sider style="padding: 0 0 0 10px;">
+      </a-layout-content>
+      <a-layout-sider style="padding: 0 0 0 10px;">
         <iframe v-if="componentName"
                 height="512px"
                 width="375px"
                 :src="`/demo/mobile/${componentName}`">
         </iframe>
-      </ae-layout-sider>
-    </ae-layout>
-  </ae-layout>
+      </a-layout-sider>
+    </a-layout>
+  </a-layout>
 </template>
 <script lang="ts">
   import {routes} from '@/router';
+  import {Options, Vue} from 'vue-class-component';
   import {Watch} from 'vue-property-decorator';
-  import { Vue } from 'vue-class-component';
+  import LeftNav from './left-nav.vue';
 
+  @Options({
+    components: {
+      LeftNav
+    }
+  })
   export default class App extends Vue {
     private componentName: string = null;
 

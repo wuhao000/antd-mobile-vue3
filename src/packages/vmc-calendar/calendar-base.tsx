@@ -1,4 +1,4 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Provide, Watch} from 'vue-property-decorator';
 import CalendarProps from './calendar-props';
 import ConfirmPanel from './calendar/confirm-panel';
@@ -21,7 +21,7 @@ export class StateType {
   public visible: boolean = false;
 }
 
-@Component({
+@Options({
   name: 'CalendarBase'
 })
 export default class CalendarBase extends CalendarProps {

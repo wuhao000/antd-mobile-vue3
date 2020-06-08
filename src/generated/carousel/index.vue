@@ -27,14 +27,14 @@
   import demo4 from './demo4.vue';
   import demo5 from './demo5.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Carousel from '@/packages/carousel';
   import title from '../../packages/carousel/demo/README.md';
   import props from '../../packages/carousel/demo/props.md';
 
   Vue.use(Carousel);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2, demo3, demo4, demo5

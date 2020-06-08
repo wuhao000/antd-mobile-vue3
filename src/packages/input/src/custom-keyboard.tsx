@@ -1,11 +1,11 @@
 import classnames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {IS_IOS} from '../../utils/exenv';
 import TouchFeedback from '../../vmc-feedback';
 
-@Component({
+@Options({
   name: 'KeyboardItem'
 })
 export class KeyboardItem extends Vue {
@@ -35,7 +35,7 @@ export class KeyboardItem extends Vue {
       iconOnly,
       ...restProps
     } = this;
-    let value: any = this.$slots.default;
+    let value: any = this.$slots.default();
     const type = this.type;
     if (type === 'keyboard-delete') {
       value = 'delete';
@@ -64,7 +64,7 @@ export class KeyboardItem extends Vue {
               class={wrapCls}
               {...restProps}
           >
-            {this.$slots.default}
+            {this.$slots.default && this.$slots.default()}
             {iconOnly && <i class="sr-only">{label}</i>}
           </td>
         </TouchFeedback2>
@@ -72,7 +72,7 @@ export class KeyboardItem extends Vue {
   }
 }
 
-@Component({
+@Options({
   name: 'CustomKeyboard'
 })
 class CustomKeyboard extends Vue {

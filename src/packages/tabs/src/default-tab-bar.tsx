@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Gesture, {IGestureStatus} from '../../vmc-gesture';
 import {Models} from '../../../types/models';
@@ -7,7 +7,7 @@ import {getPxStyle, getTransformPropValue, setPxStyle} from './utils';
 
 let instanceId: number = 0;
 
-@Component({
+@Options({
   name: 'DefaultTabBar'
 })
 class DefaultTabBar extends Vue {

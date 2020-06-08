@@ -4,10 +4,10 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'MobileScreen'
   })
   export default class MobileScreen extends Vue {

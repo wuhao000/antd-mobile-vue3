@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import ImagePicker from '@/packages/image-picker';
   import title from '../../packages/image-picker/demo/README.md';
   import props from '../../packages/image-picker/demo/props.md';
 
   Vue.use(ImagePicker);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

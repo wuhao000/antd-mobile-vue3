@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {camelAttrs} from './util';
 
 const types = ['line', 'text', 'tag', 'rect', 'html', 'arc'];
 
-@Component({
+@Options({
   name: 'VGuide'
 })
 export default class VGuide extends Vue {

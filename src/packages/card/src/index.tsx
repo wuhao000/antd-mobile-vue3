@@ -1,13 +1,13 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import Body from './body';
 import Footer from './footer';
 import Header from './header';
 
 
-@Component({
+@Options({
   name: 'Card'
 })
 export default class Card extends Vue {

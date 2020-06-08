@@ -1,10 +1,10 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import OptionsBasedComponent from '../../mixins/options-based-component';
 import List from '../../list';
 import RadioItem from './radio-item';
 
-@Component({
+@Options({
   name: 'MRadioList'
 })
 export default class MRadioList extends OptionsBasedComponent {

@@ -14,14 +14,10 @@
 </template>
 <script lang="ts">
   import MobileScreen from '@/components/mobile-screen.vue';
-  import WhiteSpace from '@/packages/white-space';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
-  import MGrid from '../../index';
 
-  Vue.use(WhiteSpace);
-  Vue.use(MGrid);
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo1',
     components: {MobileScreen}
   })

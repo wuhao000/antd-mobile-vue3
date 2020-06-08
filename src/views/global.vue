@@ -5,10 +5,10 @@
 </template>
 <script lang="ts">
   import demo from '@/packages/global/demo/index.vue';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Global',
     components: {demo}
   })

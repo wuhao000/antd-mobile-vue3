@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Popup from '@/packages/popup';
   import title from '../../packages/popup/demo/README.md';
   import props from '../../packages/popup/demo/props.md';
 
   Vue.use(Popup);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Popup from '../../popup';
 import TouchFeedback from '../../vmc-feedback';
 
-@Component({
+@Options({
   name: 'ActionSheet'
 })
 export default class ActionSheet extends Vue {

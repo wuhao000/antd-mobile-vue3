@@ -21,14 +21,14 @@
   import demo1 from './demo1.vue';
   import demo2 from './demo2.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Card from '@/packages/card';
   import title from '../../packages/card/demo/README.md';
   import props from '../../packages/card/demo/props.md';
 
   Vue.use(Card);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1, demo2

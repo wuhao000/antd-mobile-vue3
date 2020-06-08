@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
 import Icon from '../../icon';
 
@@ -13,7 +13,7 @@ const statusIcon = {
   error: 'cross-circle-o',
   wait: 'ellipsis'
 };
-@Component({
+@Options({
   name: 'Step'
 })
 export default class Step extends Vue {

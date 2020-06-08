@@ -15,13 +15,13 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Stepper from '@/packages/stepper';
   import title from '../../packages/stepper/demo/README.md';
 
   Vue.use(Stepper);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

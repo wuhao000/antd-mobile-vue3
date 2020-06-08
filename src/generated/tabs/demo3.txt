@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 
 
 const tabs = [
@@ -8,7 +8,7 @@ const tabs = [
   {title: 'Third Tab', key: 't3'}
 ];
 
-@Component({
+@Options({
   name: 'TabBarExample'
 })
 export default class TabBarExample extends Vue {

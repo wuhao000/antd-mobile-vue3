@@ -1,11 +1,11 @@
-import {IconResProps} from '../../mixins/icon-res';
-import Tab from './tab';
-import getDataAttr from '../../utils/get-data-attr';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
+import {IconResProps} from '../../mixins/icon-res';
+import getDataAttr from '../../utils/get-data-attr';
+import Tab from './tab';
 
-@Component({
+@Options({
   name: 'Item'
 })
 export default class Item extends Vue {
@@ -55,14 +55,14 @@ export default class Item extends Vue {
       selected: this.sSelected
     };
     return (
-      <Tab props={props}
-           onClick={(e) => {
-             this.tabBar.setCurrentTab(this.index);
-             this.$emit('click');
-           }}
-           dataAttrs={getDataAttr(this.$props)}>
-        {this.$slots.default}
-      </Tab>
+        <Tab props={props}
+             onClick={(e) => {
+               this.tabBar.setCurrentTab(this.index);
+               this.$emit('click');
+             }}
+             dataAttrs={getDataAttr(this.$props)}>
+          {this.$slots.default}
+        </Tab>
     );
   }
 }

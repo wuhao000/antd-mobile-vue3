@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Button from '../../button';
-import Flex from '../../flex';
+import Flex, {FlexItem} from '../../flex';
 import {getComponentLocale} from '../../utils/getLocale';
 
 @Options({
@@ -66,36 +66,36 @@ export default class Pagination extends Vue {
 
     let markup = (
         <Flex>
-          <Flex.Item
+          <FlexItem
               class={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}>
             <Button
-                inline
+                inline={true}
                 disabled={current <= 1}
                 onClick={() => this.onChange(current - 1)}
             >
               {this.$slots.prevText || this.$slots['prev-text'] || prevText}
             </Button>
-          </Flex.Item>
+          </FlexItem>
           {this.$slots.default ? (
-              <Flex.Item>{this.$slots.default}</Flex.Item>
+              <FlexItem>{this.$slots.default}</FlexItem>
           ) : (
               !simple && (
-                  <Flex.Item class={`${prefixCls}-wrap`} aria-live="assertive">
+                  <FlexItem class={`${prefixCls}-wrap`} aria-live="assertive">
                     <span class="active">{current}</span>/<span>{total}</span>
-                  </Flex.Item>
+                  </FlexItem>
               )
           )}
-          <Flex.Item
+          <FlexItem
               class={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}
           >
             <Button
-                inline
+                inline={true}
                 disabled={current >= total}
                 onClick={() => this.onChange(this.state.current + 1)}
             >
               {this.$slots.nextText || this.$slots['next-text'] || nextText}
             </Button>
-          </Flex.Item>
+          </FlexItem>
         </Flex>
     );
     if (mode === 'number') {
@@ -112,8 +112,7 @@ export default class Pagination extends Vue {
                 key={`dot-${i}`}
                 class={classnames(`${prefixCls}-wrap-dot`, {
                   [`${prefixCls}-wrap-dot-active`]: i + 1 === current
-                })}
-            >
+                })}>
               <span/>
             </div>
         );

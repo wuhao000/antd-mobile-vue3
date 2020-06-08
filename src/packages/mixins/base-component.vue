@@ -12,10 +12,10 @@
   </component>
 </template>
 <script lang="ts">
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
   import Emitter from './emitter';
 
-  @Component({
+  @Options({
     name: 'BaseComponent'
   })
   export default class BaseComponent extends Emitter {

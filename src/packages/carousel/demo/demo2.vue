@@ -19,10 +19,10 @@
 </template>
 <script lang="ts">
   import BaseDemo from './base';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'CarouselDemo2'
   })
   export default class CarouselDemo2 extends BaseDemo {

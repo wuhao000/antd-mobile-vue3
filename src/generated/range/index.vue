@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Range from '@/packages/range';
   import title from '../../packages/range/demo/README.md';
   import props from '../../packages/range/demo/props.md';
 
   Vue.use(Range);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

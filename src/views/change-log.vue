@@ -21,7 +21,7 @@
   import VersionMap from '../documents/change-log/map.json';
 
   Vue.component('Markdown', Markdown);
-  @Component({
+  @Options({
     name: 'Home'
   })
   export default class Home extends Vue {

@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {cloneElement} from '../utils/vnode';
 import {DIRECTION_ALL, DIRECTION_HORIZONTAL, DIRECTION_VERTICAL, PRESS} from './config';
@@ -143,7 +143,7 @@ const directionMap = {
   horizontal: DIRECTION_HORIZONTAL
 };
 
-@Component({
+@Options({
   name: 'Gesture'
 })
 class Gesture extends Vue {

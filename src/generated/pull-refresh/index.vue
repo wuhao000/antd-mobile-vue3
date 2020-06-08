@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import PullRefresh from '@/packages/pull-refresh';
   import title from '../../packages/pull-refresh/demo/README.md';
   import props from '../../packages/pull-refresh/demo/props.md';
 
   Vue.use(PullRefresh);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

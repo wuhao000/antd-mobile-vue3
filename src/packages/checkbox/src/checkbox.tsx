@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import RcCheckbox from 'ant-design-vue/lib/vc-checkbox';
 import AgreeItem from './agree-item';
 import CheckboxItem from './checkbox-item';
 
-@Component({
+@Options({
   name: 'MCheckbox'
 })
 class Checkbox extends Vue {

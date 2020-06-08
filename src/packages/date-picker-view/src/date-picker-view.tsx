@@ -1,10 +1,10 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import DatePickerProps from '../../date-picker/src/props-type';
 import {getComponentLocale} from '../../utils/getLocale';
 import RCDatePicker from '../../vmc-date-picker/date-picker';
 
-@Component({
+@Options({
   name: 'DatePickerView'
 })
 

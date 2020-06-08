@@ -78,10 +78,10 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'BadgeDemo1'
   })
   export default class BadgeDemo1 extends Vue {

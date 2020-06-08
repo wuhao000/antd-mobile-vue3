@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Switch from '@/packages/switch';
   import title from '../../packages/switch/demo/README.md';
   import props from '../../packages/switch/demo/props.md';
 
   Vue.use(Switch);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

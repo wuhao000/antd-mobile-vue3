@@ -16,10 +16,10 @@
   import demo1 from '@/packages/checkbox/demo/demo1.tsx';
   import demo2 from '@/packages/checkbox/demo/demo2.tsx';
   import demo3 from '@/packages/checkbox/demo/demo3.tsx';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo',
     components: {demo1, demo2, demo3, DemoWrapper}
   })

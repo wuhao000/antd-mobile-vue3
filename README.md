@@ -83,7 +83,7 @@ LocaleProvider | √ |  [无]
 
 ``` 
 import AntdMobile from 'antd-mobile-vue'
-Vue.use(AntdMobile)
+app.use(AntdMobile)
 ```
 
 
@@ -118,7 +118,7 @@ module.exports = {
 
 ```
 import { Alert } from "antd-mobile-vue";
-@Component({
+@Options({
   components: {
     Alert
   }

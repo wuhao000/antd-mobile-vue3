@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Grid from '@/packages/grid';
   import title from '../../packages/grid/demo/README.md';
   import props from '../../packages/grid/demo/props.md';
 
   Vue.use(Grid);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

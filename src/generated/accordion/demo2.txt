@@ -22,10 +22,10 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'MobileAccordionDemo2'
   })
   export default class MobileAccordionDemo2 extends Vue {

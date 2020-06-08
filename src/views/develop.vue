@@ -7,17 +7,17 @@
   </div>
 </template>
 <script lang="ts">
-  import Markdown from '@/components/markdown.vue';
-  import Input from '@/packages/input';
   import '@/styles/github-markdown.less';
-  import {Component, Vue} from 'vue-property-decorator';
+  import {Options, Vue} from 'vue-class-component';
   import version from '../documents/change-log/README.md';
   import md from '../documents/develop.md';
+  import MInput from '@/packages/input';
 
-  Vue.use(Input);
-  Vue.component('Markdown', Markdown);
-  @Component({
-    name: 'Home'
+  @Options({
+    name: 'Home',
+    components: {
+      MInput
+    }
   })
   export default class Home extends Vue {
     public content: any = md;

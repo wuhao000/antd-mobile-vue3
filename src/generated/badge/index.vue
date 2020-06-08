@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Badge from '@/packages/badge';
   import title from '../../packages/badge/demo/README.md';
   import props from '../../packages/badge/demo/props.md';
 
   Vue.use(Badge);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

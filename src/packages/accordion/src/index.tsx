@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import RcCollapse from 'ant-design-vue/lib/vc-collapse';
 
-@Component({
+@Options({
   name: 'Accordion'
 })
 export default class Accordion extends Vue {

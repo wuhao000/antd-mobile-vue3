@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Model, Prop, Watch} from 'vue-property-decorator';
 import TouchFeedback from '../../vmc-feedback';
 
-@Component({
+@Options({
   name: 'SegmentedControl'
 })
 class SegmentedControl extends Vue {

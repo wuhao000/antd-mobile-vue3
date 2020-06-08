@@ -7,12 +7,9 @@
   </div>
 </template>
 <script lang="ts">
-  import MPopup from '../../index';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(MPopup);
-  @Component({
+  @Options({
     name: 'Demo1'
   })
   export default class Demo1 extends Vue {

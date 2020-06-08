@@ -1,12 +1,13 @@
 import arrayTreeFilter from 'array-tree-filter';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
 import MultiPicker from '../vmc-picker/multi-picker';
 import Picker from '../vmc-picker/picker';
 import {CascaderValue, ICascaderDataItem} from './cascader-types';
 
-@Component({
+const PickerItem = Picker.Item;
+@Options({
   name: 'Cascader'
 })
 export default class Cascader extends Vue {
@@ -126,7 +127,7 @@ export default class Cascader extends Vue {
           {
             children.map(item => {
               // @ts-ignore
-              return <Picker.Item value={item.value}
+              return <PickerItem value={item.value}
                                   label={item.label}
                                   key={item.value}/>;
             })

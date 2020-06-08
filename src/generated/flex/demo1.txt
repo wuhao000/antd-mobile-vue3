@@ -88,11 +88,11 @@
 </template>
 <script lang="ts">
   import WhiteSpace from '@/packages/white-space/src';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+
+  import {Options, Vue} from 'vue-class-component';
   import PlaceHolder from './place-holder.vue';
 
-  @Component({
+  @Options({
     name: 'FlexDemo1',
     components: {
       WhiteSpace,

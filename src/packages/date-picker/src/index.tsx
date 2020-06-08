@@ -1,4 +1,4 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Provide} from 'vue-property-decorator';
 import {getComponentLocale} from '../../utils/getLocale';
 import {setProps} from '../../utils/vnode';
@@ -7,7 +7,7 @@ import PopupDatePicker from '../../vmc-date-picker/popup';
 import DatePickerProps from './props-type';
 import {formatFn} from './utils';
 
-@Component({
+@Options({
   name: 'MDatePicker'
 })
 class DatePicker extends DatePickerProps {

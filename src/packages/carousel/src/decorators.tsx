@@ -57,7 +57,7 @@ class Decorator1 extends IDecoratorProps {
   }
 }
 
-@Component({name: 'DefaultDecorator'})
+@Options({name: 'DefaultDecorator'})
 class Decorator2 extends IDecoratorProps {
   public render() {
     return (
@@ -91,7 +91,7 @@ class Decorator2 extends IDecoratorProps {
   }
 }
 
-@Component({name: 'DefaultDecorator'})
+@Options({name: 'DefaultDecorator'})
 class Decorator3 extends IDecoratorProps {
   public render() {
     const indexes = this.getIndexes(this.slideCount, this.slidesToScroll);

@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Picker from '@/packages/picker';
   import title from '../../packages/picker/demo/README.md';
   import props from '../../packages/picker/demo/props.md';
 
   Vue.use(Picker);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

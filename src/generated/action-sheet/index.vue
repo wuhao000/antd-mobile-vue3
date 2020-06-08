@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import ActionSheet from '@/packages/action-sheet';
   import title from '../../packages/action-sheet/demo/README.md';
   import props from '../../packages/action-sheet/demo/props.md';
 
   Vue.use(ActionSheet);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Icon from '../../icon';
 import getDataAttr from '../../utils/get-data-attr';
 import TouchFeedback from '../../vmc-feedback';
 
-@Component({
+@Options({
   name: 'Tag'
 })
 class Tag extends Vue {

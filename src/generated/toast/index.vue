@@ -15,13 +15,13 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Toast from '@/packages/toast';
   import title from '../../packages/toast/demo/README.md';
 
   Vue.use(Toast);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

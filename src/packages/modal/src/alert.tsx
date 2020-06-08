@@ -4,10 +4,10 @@ import Modal from './modal';
 import {Action} from './props-type';
 
 export default function alert(
-  title: string | VNode,
-  message: string | VNode,
-  actions = [{text: '确定'}],
-  platform = 'ios'
+    title: string | VNode,
+    message: string | VNode,
+    actions = [{text: '确定'}],
+    platform = 'ios'
 ) {
   let closed = false;
 
@@ -83,16 +83,16 @@ export default function alert(
       render() {
         // @ts-ignore
         return <Modal
-          visible
-          transparent
-          title={title}
-          transitionName="am-zoom"
-          closable={false}
-          maskClosable={false}
-          footer={footer}
-          maskTransitionName="am-fade"
-          platform={platform}
-          wrapProps={{onTouchStart: onWrapTouchStart}}>
+            visible={true}
+            transparent={true}
+            title={title}
+            transitionName="am-zoom"
+            closable={false}
+            maskClosable={false}
+            footer={footer}
+            maskTransitionName="am-fade"
+            platform={platform}
+            wrapProps={{onTouchStart: onWrapTouchStart}}>
           <div class={`${prefixCls}-alert-content`}>{message}</div>
         </Modal>;
       }

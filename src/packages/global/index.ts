@@ -1,8 +1,8 @@
-import APiProxy from '../api-proxy';
 import axios, {AxiosRequestConfig} from 'axios';
 import {PluginObject, VueConstructor} from 'Vue';
-import Vue from 'vue';
+
 import {API, ApiObject, AppConfig} from '../../../types';
+import APiProxy from '../api-proxy';
 
 
 const apiProxy = (apiObject: ApiObject, config: AppConfig,
@@ -26,7 +26,6 @@ const apiProxy = (apiObject: ApiObject, config: AppConfig,
       }
     }
   };
-  Vue.use(plugin);
   return apiProxy;
 };
 

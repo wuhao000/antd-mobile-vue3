@@ -15,13 +15,13 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import TimeDirective from '@/packages/time-directive';
   import title from '../../packages/time-directive/demo/README.md';
 
   Vue.use(TimeDirective);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

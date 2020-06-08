@@ -19,14 +19,14 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import WingBlank from '@/packages/wing-blank';
   import title from '../../packages/wing-blank/demo/README.md';
   import props from '../../packages/wing-blank/demo/props.md';
 
   Vue.use(WingBlank);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import Component, {Options} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import {FormComponent} from '../../mixins/form-component';
 
-@Component({
+@Options({
   name: 'MSwitch'
 })
 export default class Switch extends FormComponent {

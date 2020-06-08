@@ -1,9 +1,9 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
 import PopupPicker from '../vmc-picker/popup';
 
-@Component({
+@Options({
   name: 'PopupCascader'
 })
 export default class PopupCascader extends Vue {

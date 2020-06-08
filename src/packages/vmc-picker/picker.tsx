@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import Component, {mixins} from 'vue-class-component';
+import {mixins} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import PickerMixin from './picker-mixin';
 import {PickerProps} from './picker-types';
 
-@Component({
+@Options({
   name: 'Picker'
 })
 class Picker extends mixins(PickerProps) {

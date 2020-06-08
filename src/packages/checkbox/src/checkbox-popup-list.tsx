@@ -1,11 +1,11 @@
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
-import List from '../../list';
+import List, {ListItem} from '../../list';
 import OptionsBasedComponent from '../../mixins/options-based-component';
 import Popup from '../../popup';
 import CheckboxList from './checkbox-list';
 
-@Component({
+@Options({
   name: 'MCheckboxPopupList'
 })
 export default class MCheckboxPopupList extends OptionsBasedComponent {
@@ -83,7 +83,7 @@ export default class MCheckboxPopupList extends OptionsBasedComponent {
     listProps.title = undefined;
     const cancelButton = <div onclick={this.onClear}
                               class={`am-popup-item am-popup-header-left`}>清除</div>;
-    return <List.Item onClick={this.onClick}
+    return <ListItem onClick={this.onClick}
                       touchFeedback={!this.readOnly && !this.disabled}
                       required={this.required}
                       text={!!optionText}
@@ -107,7 +107,7 @@ export default class MCheckboxPopupList extends OptionsBasedComponent {
       </Popup>
       <span slot="extra">{stateValue && stateValue.length ? optionText : placeholder}</span>
       <span>{this.title}</span>
-    </List.Item>;
+    </ListItem>;
   }
 
   private closePopup() {

@@ -1,12 +1,12 @@
 import {MultiPickerProps} from '../vmc-picker/multi-picker-props';
 import classnames from 'classnames';
 
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {setListeners, setProps} from '../utils/vnode';
 import MultiPickerMixin from './multi-picker-mixin';
 
-@Component({name: 'MultiPicker'})
+@Options({name: 'MultiPicker'})
 class MultiPicker extends MultiPickerProps {
   @Prop()
   public getValue: any;

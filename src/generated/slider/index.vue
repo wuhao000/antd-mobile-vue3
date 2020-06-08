@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Slider from '@/packages/slider';
   import title from '../../packages/slider/demo/README.md';
   import props from '../../packages/slider/demo/props.md';
 
   Vue.use(Slider);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

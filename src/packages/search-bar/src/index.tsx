@@ -1,6 +1,6 @@
 import classnames from 'classnames';
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import TouchFeedback from '../../vmc-feedback';
 
@@ -19,7 +19,7 @@ function clearNextFrameAction(nextFrameId: number) {
   }
 }
 
-@Component({
+@Options({
   name: 'SearchBar'
 })
 export default class SearchBar extends Vue {

@@ -15,13 +15,13 @@
 <script lang="ts">
   import demo1 from './demo1.vue';
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Radio from '@/packages/radio';
   import title from '../../packages/radio/demo/README.md';
 
   Vue.use(Radio);
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

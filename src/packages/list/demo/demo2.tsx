@@ -1,12 +1,12 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {List} from '../../index';
 import './index1.less';
 
 const Item = List.Item;
 const Brief = Item.Brief;
 
-@Component({
+@Options({
   name: 'ListExample'
 })
 export default class ListExample extends Vue {
@@ -26,13 +26,13 @@ export default class ListExample extends Vue {
         <Item onClick={this.onClick} extra="extra content">Title</Item>
       </List>
       <List renderHeader={() => 'Subtitle'} class="my-list">
-        <Item arrow="horizontal" multipleLine onClick={() => {
+        <Item arrow="horizontal" multipleLine={true} onClick={() => {
         }}>
           Title <Brief>subtitle</Brief>
         </Item>
         <Item
           arrow="horizontal"
-          multipleLine
+          multipleLine={true}
           onClick={() => {
           }}
           platform="android"
@@ -43,7 +43,7 @@ export default class ListExample extends Vue {
         <Item
           arrow="horizontal"
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-          multipleLine
+          multipleLine={true}
           onClick={() => {
           }}
         >
@@ -56,13 +56,15 @@ export default class ListExample extends Vue {
         }}>Title</Item>
         <Item extra="extra content" arrow="horizontal" onClick={() => {
         }}>Title</Item>
-        <Item extra="10:30" align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-              multipleLine>
+        <Item extra="10:30"
+              align="top"
+              thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+              multipleLine={true}>
           Title <Brief>subtitle</Brief>
         </Item>
       </List>
       <List renderHeader={() => 'Align Vertical Center'} class="my-list">
-        <Item multipleLine extra="extra content">
+        <Item multipleLine={true} extra="extra content">
           Title <Brief>subtitle</Brief>
         </Item>
       </List>
@@ -84,11 +86,11 @@ export default class ListExample extends Vue {
       </List>
       <List renderHeader={() => 'Text Wrapping'} class="my-list">
         <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
-        <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
-        <Item extra="extra content" multipleLine align="top" wrap>
+        <Item wrap={true}>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
+        <Item extra="extra content" multipleLine={true} align="top" wrap={true}>
           Multiple line and long text will wrap. Long Text Long Text Long Text
         </Item>
-        <Item extra="no arrow" arrow="empty" class="spe" wrap>
+        <Item extra="no arrow" arrow="empty" class="spe" wrap={true}>
           In rare cases, the text of right side will wrap in the single line with long text. long text long text long
           text
         </Item>

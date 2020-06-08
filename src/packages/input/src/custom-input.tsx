@@ -1,6 +1,6 @@
 import classnames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import {addClass, removeClass} from '../../utils/class';
 import CustomKeyboard from './custom-keyboard';
@@ -9,7 +9,7 @@ import Portal from './portal';
 let instanceArr: any = [];
 let customNumberKeyboard: any = null;
 
-@Component({
+@Options({
   name: ''
 })
 
@@ -105,16 +105,16 @@ class NumberInput extends Vue {
       moneyKeyboardHeader
     } = this;
     return (
-      <CustomKeyboard
-        ref="keyboard"
-        onClick={this.onKeyboardClick.bind(this)}
-        prefixCls={keyboardPrefixCls}
-        confirmLabel={confirmLabel}
-        backspaceLabel={backspaceLabel}
-        cancelKeyboardLabel={cancelKeyboardLabel}
-        wrapProps={moneyKeyboardWrapProps}
-        header={moneyKeyboardHeader}
-      />
+        <CustomKeyboard
+            ref="keyboard"
+            onClick={this.onKeyboardClick.bind(this)}
+            prefixCls={keyboardPrefixCls}
+            confirmLabel={confirmLabel}
+            backspaceLabel={backspaceLabel}
+            cancelKeyboardLabel={cancelKeyboardLabel}
+            wrapProps={moneyKeyboardWrapProps}
+            header={moneyKeyboardHeader}
+        />
     );
   }
 
@@ -151,15 +151,15 @@ class NumberInput extends Vue {
 
   public unLinkInput() {
     if (
-      customNumberKeyboard &&
-      customNumberKeyboard.antmKeyboard &&
-      customNumberKeyboard.linkedInput &&
-      customNumberKeyboard.linkedInput === this
+        customNumberKeyboard &&
+        customNumberKeyboard.antmKeyboard &&
+        customNumberKeyboard.linkedInput &&
+        customNumberKeyboard.linkedInput === this
     ) {
       customNumberKeyboard.linkedInput = null;
       addClass(
-        customNumberKeyboard.antmKeyboard,
-        `${this.keyboardPrefixCls}-wrapper-hide`
+          customNumberKeyboard.antmKeyboard,
+          `${this.keyboardPrefixCls}-wrapper-hide`
       );
     }
     // for unmount
@@ -184,21 +184,21 @@ class NumberInput extends Vue {
       customNumberKeyboard.linkedInput = this;
       if (customNumberKeyboard.antmKeyboard) {
         removeClass(
-          customNumberKeyboard.antmKeyboard,
-          `${this.keyboardPrefixCls}-wrapper-hide`
+            customNumberKeyboard.antmKeyboard,
+            `${this.keyboardPrefixCls}-wrapper-hide`
         );
       }
       customNumberKeyboard.confirmDisabled = this.value === '';
       if (customNumberKeyboard.confirmKeyboardItem) {
         if (this.value === '') {
           addClass(
-            customNumberKeyboard.confirmKeyboardItem,
-            `${this.keyboardPrefixCls}-item-disabled`
+              customNumberKeyboard.confirmKeyboardItem,
+              `${this.keyboardPrefixCls}-item-disabled`
           );
         } else {
           removeClass(
-            customNumberKeyboard.confirmKeyboardItem,
-            `${this.keyboardPrefixCls}-item-disabled`
+              customNumberKeyboard.confirmKeyboardItem,
+              `${this.keyboardPrefixCls}-item-disabled`
           );
         }
       }
@@ -228,9 +228,9 @@ class NumberInput extends Vue {
       this.onInputBlur(valueAfterChange);
     } else {
       if (
-        maxLength !== undefined &&
-        +maxLength >= 0 &&
-        (value + KeyboardItemValue).length > maxLength
+          maxLength !== undefined &&
+          +maxLength >= 0 &&
+          (value + KeyboardItemValue).length > maxLength
       ) {
         valueAfterChange = (value + KeyboardItemValue).substr(0, maxLength);
         onChange({target: {value: valueAfterChange}});
@@ -244,13 +244,13 @@ class NumberInput extends Vue {
       if (customNumberKeyboard.confirmKeyboardItem) {
         if (valueAfterChange === '') {
           addClass(
-            customNumberKeyboard.confirmKeyboardItem,
-            `${this.keyboardPrefixCls}-item-disabled`
+              customNumberKeyboard.confirmKeyboardItem,
+              `${this.keyboardPrefixCls}-item-disabled`
           );
         } else {
           removeClass(
-            customNumberKeyboard.confirmKeyboardItem,
-            `${this.keyboardPrefixCls}-item-disabled`
+              customNumberKeyboard.confirmKeyboardItem,
+              `${this.keyboardPrefixCls}-item-disabled`
           );
         }
       }
@@ -275,13 +275,13 @@ class NumberInput extends Vue {
 
   public renderPortal() {
     return (
-      <Portal props={
-        {
-          getContainer: () => this.getContainer()
-        }
-      }>
-        {this.getComponent()}
-      </Portal>
+        <Portal props={
+          {
+            getContainer: () => this.getContainer()
+          }
+        }>
+          {this.getComponent()}
+        </Portal>
     );
   }
 
@@ -297,22 +297,22 @@ class NumberInput extends Vue {
       'fake-input-container-left': moneyKeyboardAlign === 'left'
     });
     return (
-      <div class={fakeInputContainerCls}>
-        {value === '' && (
-          <div class="fake-input-placeholder">{placeholder}</div>
-        )}
-        <div
-          role="textbox"
-          aria-label={value || placeholder}
-          class={fakeInputCls}
-          ref="input"
-          onClick={preventKeyboard ? () => {
-          } : this.onFakeInputClick}
-        >
-          {value}
+        <div class={fakeInputContainerCls}>
+          {value === '' && (
+              <div class="fake-input-placeholder">{placeholder}</div>
+          )}
+          <div
+              role="textbox"
+              aria-label={value || placeholder}
+              class={fakeInputCls}
+              ref="input"
+              onClick={preventKeyboard ? () => {
+              } : this.onFakeInputClick}
+          >
+            {value}
+          </div>
+          {this.renderPortal()}
         </div>
-        {this.renderPortal()}
-      </div>
     );
   }
 }

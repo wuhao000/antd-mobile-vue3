@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Inject, Prop} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'Container'
 })
 export default class Sticky extends Vue {

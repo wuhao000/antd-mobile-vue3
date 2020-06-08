@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Touchable from '../vmc-feedback';
 
-@Component({
+@Options({
   name: 'InputHandler'
 })
 class InputHandler extends Vue {

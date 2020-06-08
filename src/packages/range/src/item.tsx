@@ -16,7 +16,7 @@ export default class RangeItem extends FormComponent {
   public title: string | VNode;
 
   public render() {
-    return <ListItem multipleLine
+    return <ListItem multipleLine={true}
                       disabled={this.isDisabled}>
       {this.title}
       <ListItemBrief style={{padding: '15px', flex: 1}}>

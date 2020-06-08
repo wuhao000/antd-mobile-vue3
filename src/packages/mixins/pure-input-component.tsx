@@ -1,5 +1,5 @@
 import {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {mixins} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 import Emitter from './emitter';
@@ -15,7 +15,7 @@ const hasProp = (instance, prop) => {
   return prop in propsData;
 };
 
-@Component({
+@Options({
   name: 'PureInputComponent'
 })
 export default class PureInputComponent extends mixins(Emitter) {

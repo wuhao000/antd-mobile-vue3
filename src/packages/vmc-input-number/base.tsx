@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
 
 function defaultParser(input: string | number) {
@@ -26,7 +26,7 @@ const DELAY = 600;
 const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
 
-@Component({
+@Options({
   name: 'BaseComponent'
 })
 export default class BaseComponent extends Vue {

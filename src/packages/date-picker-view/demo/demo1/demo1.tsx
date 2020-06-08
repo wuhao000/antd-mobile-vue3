@@ -1,4 +1,4 @@
-import Vue from 'vue';
+
 import DatePickerView from '../../index';
 
 export default Vue.extend({

@@ -13,10 +13,10 @@
   </div>
 </template>
 <script lang="tsx">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
 
-  @Component({
+  import {Options, Vue} from 'vue-class-component';
+
+  @Options({
     name: 'Demo1Index'
   })
   export default class Demo1Index extends Vue {

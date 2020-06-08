@@ -1,5 +1,5 @@
 <template>
-  <ae-layout>
+  <a-layout>
     <m-list>
       <m-radio-popup-list v-model="value"
                           title="单选"
@@ -9,15 +9,12 @@
                           :options="options2"></m-radio-popup-list>
       <m-radio-item>单个</m-radio-item>
     </m-list>
-  </ae-layout>
+  </a-layout>
 </template>
 <script lang="ts">
-  import Radio from '@/packages/radio';
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+  import {Options, Vue} from 'vue-class-component';
 
-  Vue.use(Radio);
-  @Component({
+  @Options({
     name: 'Components'
   })
   export default class Components extends Vue {

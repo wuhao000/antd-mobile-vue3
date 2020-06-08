@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+
+import {Options, Vue} from 'vue-class-component';
 import {Button, Input, List, Range, Switch} from '../../index';
 
 const Item = List.Item;
 
-@Component({
+@Options({
   name: 'BasicInput'
 })
 export default class BasicInput extends Vue {
@@ -50,7 +50,7 @@ export default class BasicInput extends Vue {
             attrs={{model: this.data}}
             renderHeader={() => 'Form Validation'}
             renderFooter={() => 'abc'}>
-        <Input clear vModel={this.data.account}
+        <Input clear={true} vModel={this.data.account}
                placeholder="please input account"
         >Account</Input>
         <Input vModel={this.data.password}
@@ -64,8 +64,8 @@ export default class BasicInput extends Vue {
           <div style={{padding: '15px'}}><Range vModel={this.state.range}/></div>
         </Item>
         <Item>
-          <Button type="primary" size="small" inline onClick={this.onSubmit.bind(this)}>Submit</Button>
-          <Button size="small" inline style={{marginLeft: '2.5px'}} onClick={this.onReset.bind(this)}>Reset</Button>
+          <Button type="primary" size="small" inline={true} onClick={this.onSubmit.bind(this)}>Submit</Button>
+          <Button size="small" inline={true} style={{marginLeft: '2.5px'}} onClick={this.onReset.bind(this)}>Reset</Button>
         </Item>
       </List>
     </form>);

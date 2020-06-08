@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import SearchBar from '@/packages/search-bar';
   import title from '../../packages/search-bar/demo/README.md';
   import props from '../../packages/search-bar/demo/props.md';
 
   Vue.use(SearchBar);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

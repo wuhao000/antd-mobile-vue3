@@ -1,4 +1,4 @@
-import Vue from 'vue';
+
 import closest from '../../utils/closest';
 import Modal from './modal';
 import {Action} from './props-type';
@@ -66,8 +66,8 @@ export default function operation(
       // @ts-ignore
       return <Modal
         visible={true}
-        operation
-        transparent
+        operation={true}
+        transparent={true}
         prefixCls={prefixCls}
         transitionName="am-zoom"
         closable={false}

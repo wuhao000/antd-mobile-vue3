@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import TouchFeedback from '../../vmc-feedback';
 
-@Component({
+@Options({
   name: 'PopoverItem'
 })
 export default class Item extends Vue {
@@ -43,28 +43,28 @@ export default class Item extends Vue {
       activeClass += `${prefixCls}-item-fix-active-arrow`;
     }
     return (
-      <TouchFeedback
-        disabled={disabled}
-        activeClassName={activeClass}
-        activeStyle={activeStyle}
-      >
-        <div class={cls} {...restProps}
-             onClick={(e) => {
-               if (!this.disabled) {
-                 this.$emit('click', e);
-               }
-             }}>
-          <div class={`${prefixCls}-item-container`}>
-            {icon ? (
-              // tslint:disable-next-line:jsx-no-multiline-js
-              <span class={`${prefixCls}-item-icon`} aria-hidden="true">
+        <TouchFeedback
+            disabled={disabled}
+            activeClassName={activeClass}
+            activeStyle={activeStyle}
+        >
+          <div class={cls} {...restProps}
+               onClick={(e) => {
+                 if (!this.disabled) {
+                   this.$emit('click', e);
+                 }
+               }}>
+            <div class={`${prefixCls}-item-container`}>
+              {icon ? (
+                  // tslint:disable-next-line:jsx-no-multiline-js
+                  <span class={`${prefixCls}-item-icon`} aria-hidden="true">
                     {icon}
                   </span>
-            ) : null}
-            <span class={`${prefixCls}-item-content`}>{this.$slots.default}</span>
+              ) : null}
+              <span class={`${prefixCls}-item-content`}>{this.$slots.default}</span>
+            </div>
           </div>
-        </div>
-      </TouchFeedback>
+        </TouchFeedback>
     );
   }
 }

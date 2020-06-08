@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Provide} from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'Step'
 })
 export default class Steps extends Vue {

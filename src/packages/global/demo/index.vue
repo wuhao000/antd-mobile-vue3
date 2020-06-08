@@ -32,16 +32,16 @@
 </template>
 
 <script lang="ts">
-  import demo1 from './generated/demo1.vue';
+  import demo1 from './demo1/index.vue';
 
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+
+  import {Options, Vue} from 'vue-class-component';
 
   import title from './README.md';
 
 
 
-  @Component({
+  @Options({
     name: 'ComponentDemo',
     components: {
       demo1

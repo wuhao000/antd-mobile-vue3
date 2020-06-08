@@ -4,10 +4,10 @@ const tabs2 = [
   {title: 'Third Tab', sub: '3'}
 ];
 
-import Vue from 'vue';
-import Component from 'vue-class-component';
 
-@Component({
+import {Options, Vue} from 'vue-class-component';
+
+@Options({
   name: 'TabBarExample'
 })
 export default class TabBarExample extends Vue {

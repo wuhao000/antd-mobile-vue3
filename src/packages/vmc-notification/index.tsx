@@ -1,8 +1,8 @@
 // import classnames from 'classnames';
 // import Animate from 'rc-animate';
 // import createChainedFunction from 'rc-util/lib/createChainedFunction';
-// import Vue from 'vue';
-// import Component from 'vue-class-component';
+// 
+// import {Options, Vue} from 'vue-class-component';
 // import {Prop} from 'vue-property-decorator';
 // import Notice from './notice';
 //
@@ -13,7 +13,7 @@
 //   return `rcNotification_${now}_${seed++}`;
 // }
 //
-// @Component({
+// @Options({
 //   name: 'Notification'
 // })
 // class Index extends Vue {

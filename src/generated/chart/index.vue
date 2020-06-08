@@ -19,14 +19,14 @@
 <script lang="ts">
 
   
-  import Vue from 'vue';
+  
   import Component from 'vue-class-component';
   import Chart from '@/packages/chart';
   import title from '../../packages/chart/demo/README.md';
   import props from '../../packages/chart/demo/props.md';
 
   Vue.use(Chart);
-  @Component({
+  @Options({
     name: 'ComponentDemo'
   })
   export default class ComponentDemo extends Vue {

@@ -1,10 +1,10 @@
 import RcSlider from 'ant-design-vue/es/vc-slider/src/Slider';
 import {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import {Prop} from 'vue-property-decorator';
 import {FormComponent} from '../../mixins/form-component';
 
-@Component({
+@Options({
   name: 'Slider'
 })
 class Slider extends FormComponent {

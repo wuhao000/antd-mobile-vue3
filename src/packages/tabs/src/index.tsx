@@ -1,10 +1,10 @@
-import Vue, {VNode} from 'vue';
-import Component from 'vue-class-component';
+import {VNode} from 'vue';
+import {Options, Vue} from 'vue-class-component';
 import {Prop, Watch} from 'vue-property-decorator';
+import {Models} from '../../../types/models';
 import Gesture, {IGestureStatus} from '../../vmc-gesture';
 import {DIRECTION_DOWN, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP} from '../../vmc-gesture/config';
 import DefaultTabBar from './default-tab-bar';
-import {Models} from '../../../types/models';
 import {TabBarPropsType} from './props-type';
 import TabPane from './tab-pane';
 import {getTransformPropValue, setPxStyle, setTransform} from './utils';
@@ -24,7 +24,7 @@ export const getPanDirection = (direction: number | undefined) => {
   }
 };
 
-@Component({
+@Options({
   name: 'Tabs'
 })
 export default class Tabs extends Vue {
@@ -131,9 +131,9 @@ export default class Tabs extends Vue {
     this.nextCurrentTab = this.currentTab;
     this.instanceId = instanceId++;
     this.contentPos = this.getContentPosByIndex(
-      this.getTabIndex(),
-      this.isTabVertical(this.tabDirection),
-      this.useLeftInsteadTransform
+        this.getTabIndex(),
+        this.isTabVertical(this.tabDirection),
+        this.useLeftInsteadTransform
     );
   }
 
@@ -331,8 +331,8 @@ export default class Tabs extends Vue {
           offset += panDirection === 'vertical' ? 0 : status.moveStatus.x;
         }
         const canScrollOffset = isVertical ?
-          -this.layout.scrollHeight + this.layout.clientHeight :
-          -this.layout.scrollWidth + this.layout.clientWidth;
+            -this.layout.scrollHeight + this.layout.clientHeight :
+            -this.layout.scrollWidth + this.layout.clientWidth;
         offset = Math.min(offset, 0);
         offset = Math.max(offset, canScrollOffset);
         setPxStyle(this.layout, offset, 'px', isVertical, useLeftInsteadTransform);
@@ -350,12 +350,12 @@ export default class Tabs extends Vue {
         if (offsetIndex === this.currentTab) {
           if (this.usePaged) {
             setTransform(
-              this.layout.style,
-              this.getContentPosByIndex(
-                offsetIndex,
-                this.isTabVertical(),
-                this.useLeftInsteadTransform
-              )
+                this.layout.style,
+                this.getContentPosByIndex(
+                    offsetIndex,
+                    this.isTabVertical(),
+                    this.useLeftInsteadTransform
+                )
             );
           }
         } else {
@@ -372,9 +372,9 @@ export default class Tabs extends Vue {
     if (usePaged) {
       newState = {
         contentPos: this.getContentPosByIndex(
-          index,
-          this.isTabVertical(tabDirection),
-          useLeftInsteadTransform
+            index,
+            this.isTabVertical(tabDirection),
+            useLeftInsteadTransform
         )
       };
     }
@@ -442,10 +442,10 @@ export default class Tabs extends Vue {
       contentCls += ` ${contentCls}-animated`;
     }
     const contentStyle: any = animated ? (
-      useLeftInsteadTransform ? {
-        position: 'relative',
-        ...this.isTabVertical() ? {top: contentPos} : {left: contentPos}
-      } : getTransformPropValue(contentPos)
+        useLeftInsteadTransform ? {
+          position: 'relative',
+          ...this.isTabVertical() ? {top: contentPos} : {left: contentPos}
+        } : getTransformPropValue(contentPos)
     ) : {
       position: 'relative',
       ...this.isTabVertical() ? {top: `${-currentTab * 100}%`} : {left: `${-currentTab * 100}%`}
@@ -495,12 +495,12 @@ export default class Tabs extends Vue {
       <div key="tabBar" class={`${prefixCls}-tab-bar-wrap`}>
         {
           this.renderTabBar ? this.renderTabBar(tabBarProps)
-            : <DefaultTabBar attrs={tabBarProps}
-                             on={{
-                               tabClick: (tab, index) => {
-                                 this.onTabClick(tab, index);
-                               }
-                             }}/>
+              : <DefaultTabBar attrs={tabBarProps}
+                               on={{
+                                 tabClick: (tab, index) => {
+                                   this.onTabClick(tab, index);
+                                 }
+                               }}/>
         }
       </div>,
       <Gesture key="$content"
